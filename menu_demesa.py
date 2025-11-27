@@ -1,5 +1,5 @@
 import time, os
-from menu_technical import basics, operators, program_intro, conditionals, loops, list_functions
+from menu_technical import basics, operators, program_intro, conditionals, loops, list_functions, challenges
 
 # Greetings & Start
 os.system('cls')
@@ -19,7 +19,7 @@ elif start == 'n':
     exit()
 
 # Introduction
-intro = input("Would you like to see about the program? (y/n): ").lower()
+intro = input("Would you like to see introduction of the program? (y/n): ").lower()
 if intro == 'y':
     os.system('cls')
     program_intro(name)
@@ -65,9 +65,9 @@ while True:
     elif pick == '4':
         loops(name)
     elif pick == '5':
-        list_functions()
+        list_functions(name)
     elif pick == '6':
-        pass
+        challenges(name)
     elif pick == '7':
         pass
     elif pick == '8':

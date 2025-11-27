@@ -4,6 +4,7 @@ from menu_lessons import arithmetic, assignment, comparison, logical, tries
 from menu_lessons import if_elif_else, nested, combining
 from menu_lessons import for_loops, while_loops, nested_loops, loop_control
 from menu_lessons import lists, functions, importing_random, defs, dictionaries
+from menu_lessons import challenge_1, challenge_2, challenge_3, challenge_4, challenge_5, challenge_6, challenge_7, challenge_8, challenge_9, challenge_10, challenge_11, challenge_12, challenge_13, challenge_14, challenge_15
 
 # Introduction
 def program_intro(name):
@@ -269,4 +270,101 @@ def list_functions(name):
             break
         else:
             print("Invalid choice, try again.")
+            continue
+
+# Challenges Options
+def challenges(name):
+    while True:
+        os.system('cls')
+        print("\n========== CHALLENGES ==========")
+        time.sleep(0.3)
+        print("1. Diamond with Name")
+        time.sleep(0.3)
+        print("2. ATM Denomination")
+        time.sleep(0.3)
+        print("3. Student Discount Checker")
+        time.sleep(0.3)
+        print("4. Manga Recommender")
+        time.sleep(0.3)
+        print("5. Factorial Calculator")
+        time.sleep(0.3)
+        print("6. Odd Number Summation")
+        time.sleep(0.3)
+        print("7. Countdown Simulator")
+        time.sleep(0.3)
+        print("8. Multiplication Table")
+        time.sleep(0.3)
+        print("9. Parrot Simulator")
+        time.sleep(0.3)
+        print("10. Reversed Staircase")
+        time.sleep(0.3)
+        print("11. Triangle Pattern")
+        time.sleep(0.3)
+        print("12. Pyramid Number")
+        time.sleep(0.3)
+        print("13. Odd/Even Summation")
+        time.sleep(0.3)
+        print("14. Anime List Maker")
+        time.sleep(0.3)
+        print("15. Student Information System")
+        time.sleep(0.3)
+        print("0. Back to Main Menu")
+        time.sleep(0.3)
+        print("===============================")
+        time.sleep(0.3)
+
+        choice = input(f'Select a challenge {name} (0-15): ').lower()
+
+        if choice == '1':
+            os.system('cls')
+            challenge_1()
+        elif choice == '2':
+            os.system('cls')
+            challenge_2()
+        elif choice == '3':
+            os.system('cls')
+            challenge_3()
+        elif choice == '4':
+            os.system('cls')
+            challenge_4()
+        elif choice == '5':
+            os.system('cls')
+            challenge_5()
+        elif choice == '6':
+            os.system('cls')
+            challenge_6()
+        elif choice == '7':
+            os.system('cls')
+            challenge_7()
+        elif choice == '8':
+            os.system('cls')
+            challenge_8()
+        elif choice == '9':
+            os.system('cls')
+            challenge_9()
+        elif choice == '10':
+            os.system('cls')
+            challenge_10()
+        elif choice == '11':
+            os.system('cls')
+            challenge_11()
+        elif choice == '12':
+            os.system('cls')
+            challenge_12()
+        elif choice == '13':
+            os.system('cls')
+            challenge_13()
+        elif choice == '14':
+            os.system('cls')
+            challenge_14()
+        elif choice == '15':
+            os.system('cls')
+            challenge_15()
+        elif choice == '0':
+            os.system('cls')
+            print("Returning to Main Menu...")
+            break
+        else:
+            print("Invalid choice, try again.")
+            time.sleep(0.7)
             continue
