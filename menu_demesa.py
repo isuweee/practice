@@ -1,17 +1,17 @@
 import time, os
-from menu_technical import basics, operators, program_intro, conditionals, loops, list_functions, challenges
+from menu_technical import *
 
 # Greetings & Start
 os.system('cls')
-name = input("Enter your name: ")
-start = input(f'Hello {name}, would you like to start the program? (y/n): ').lower()
+name = input(green("Enter your name: "))
+start = input(magenta(f'Hello {name}, would you like to start the program? {yellow('(y/n)'):} ')).lower()
 os.system('cls')
 if start == 'y':
-    print("Program will start in: ")
+    print(yellow("Program will start in: "))
     time.sleep(1)
     os.system('cls')
     for i in range(3, 0, -1):
-        print(f'         {i}')
+        print(cyan(f'         {i}'))
         time.sleep(1)
         os.system('cls')
 elif start == 'n':
@@ -19,7 +19,7 @@ elif start == 'n':
     exit()
 
 # Introduction
-intro = input("Would you like to see introduction of the program? (y/n): ").lower()
+intro = input(green(f"Would you like to see introduction of the program? {yellow('y/n:')} ")).lower()
 if intro == 'y':
     os.system('cls')
     program_intro(name)
@@ -30,31 +30,32 @@ elif intro == 'n':
 # Main Menu
 while True:
     os.system('cls')
-    print("========== MENU ==========")
+    print("==========", bold(green("MENU")), ("=========="))
     time.sleep(0.3)
-    print("1. Basics")
+    print(f"{red('1')}. Basics")
     time.sleep(0.3) 
-    print("2. Operators")
+    print(f"{red('2')}. Operators")
     time.sleep(0.3)
-    print("3. Conditional Statements")
+    print(f"{red('3')}. Conditional Statements")
     time.sleep(0.3)
-    print("4. Loops")
+    print(f"{red('4')}. Loops")
     time.sleep(0.3)
-    print("5. List & Functions")
+    print(f"{red('5')}. List & Functions")
     time.sleep(0.3)
-    print("6. Challenges")
+    print(f"{red('6')}. Challenges")
     time.sleep(0.3)
-    print("7. Extra Lesson")
+    print(f"{red('7')}. Extra Lesson")
     time.sleep(0.3)
-    print("8. Practice Yourself")
+    print(f"{red('8')}. Practice Yourself")
     time.sleep(0.3)
-    print("9. Guess The Output Game")
-    print("0. Exit")
+    print(f"{red('9')}. Guess The Output Game")
+    time.sleep(0.3)
+    print(f"{red('0')}. Exit")
     time.sleep(0.3)
     print("==========================")
     time.sleep(0.3)
 
-    pick = input("Select from the options above (0-9): ").lower()
+    pick = input(green("Select from the options above (0-9): ")).lower()
 
     if pick == '1':
         basics(name)
@@ -69,17 +70,24 @@ while True:
     elif pick == '6':
         challenges(name)
     elif pick == '7':
-        pass
+        extras(name)
     elif pick == '8':
         while True:
             os.system('cls')
-            print("\n=================== PRACTICE YOURSELF ===================")
+            print(f"\n=================== {bold(red('PRACTICE YOURSELF'))} ===================")
+            time.sleep(0.3)
             print("Type Python code using the concepts you learned.")
+            time.sleep(0.3)
             print("Type 'output' at the last line to run your code.")
+            time.sleep(0.3)
             print("Type 'return' to go back to the menu.")
+            time.sleep(0.3)
             print("\nNOTE:")
+            time.sleep(0.3)
             print("- input(), import, exit(), quit() are NOT recommended.")
+            time.sleep(0.3)
             print("  because it won't show the output properly")
+            time.sleep(0.3)
             print("==========================================================\n")
 
             user_lines = []
@@ -94,7 +102,7 @@ while True:
                     break
 
                 if any(f in low_line for f in forbidden):
-                    print("This command is not allowed here. Please try again.")
+                    print(red("This command is not allowed here. Please try again."))
                     continue
 
                 if low_line == "output":
@@ -104,25 +112,25 @@ while True:
 
             if user_lines:
                 code = "\n".join(user_lines)
-                print("\n============== OUTPUT ==============")
+                print("\n=============="), (green("OUTPUT")), ("==============")
                 try:
                     exec(code)
-                    print("\nYour code is working!")
+                    print(green("\nYour code is working!"))
                 except Exception as e:
-                    print(f"There was an error in your code: {e}")
-                print("====================================")
+                    print(red(f"There was an error in your code: {e}"))
+                print(cyan("===================================="))
 
-            again = input("\nTry another code? (y/n): ").lower()
+            again = input(green("\nTry another code? (y/n): ")).lower()
             if again != 'y':
                 os.system('cls')
                 break
 
         os.system('cls')
     elif pick == '9':
-        pass
+        guess(name)
     elif pick == '0':
         os.system('cls')
-        print("Goodbye!")
+        print(green("Goodbye!"))
         break
     else:
-        print("Invalid choice, try again.")
+        print(red("Invalid choice, try again."))

@@ -1,14 +1,9 @@
 import time, os
-from menu_lessons import prints, inputs, escape_sequences, length, evals 
-from menu_lessons import arithmetic, assignment, comparison, logical, tries
-from menu_lessons import if_elif_else, nested, combining
-from menu_lessons import for_loops, while_loops, nested_loops, loop_control
-from menu_lessons import lists, functions, importing_random, defs, dictionaries
-from menu_lessons import challenge_1, challenge_2, challenge_3, challenge_4, challenge_5, challenge_6, challenge_7, challenge_8, challenge_9, challenge_10, challenge_11, challenge_12, challenge_13, challenge_14, challenge_15
+from menu_lessons import *
 
 # Introduction
 def program_intro(name):
-    print("================================= WELCOME =================================")
+    print(f"================================= {bold(cyan('WELCOME'))} =================================")
     time.sleep(0.3)
     print(f'Hello {name}, I\'m Teki. And welcome to Teki\'s Python Learning Program.')
     time.sleep(0.3)
@@ -36,33 +31,33 @@ def program_intro(name):
     time.sleep(0.3)
     print("Press 0 at any menu to go back or exit.")
     time.sleep(0.3)
-    print("\nLet's get started!\n")
+    print(yellow("\nLet's get started!\n"))
     time.sleep(0.3)
-    input("Press Enter to continue: ")
+    input(green("Press Enter to continue: "))
     os.system('cls')
 
 # Basics Options
 def basics(name):
     while True:
         os.system('cls')
-        print("\n========== BASICS ==========")
+        print(f"\n========== {bold(cyan('BASICS'))} ==========")
         time.sleep(0.3)
-        print("1. Print Statements")
+        print(f"{red('1')}. Print Statements")
         time.sleep(0.3)
-        print("2. Input & Variables")
+        print(f"{red('2')}. Input & Variables")
         time.sleep(0.3)
-        print("3. Escape Sequences")
+        print(f"{red('3')}. Escape Sequences")
         time.sleep(0.3)
-        print("4. Length")
+        print(f"{red('4')}. Length")
         time.sleep(0.3)
-        print("5. Eval, Int, Str, Float, Type")
+        print(f"{red('5')}. Eval, Int, Str, Float, Type")
         time.sleep(0.3)
-        print("0. Back to Main Menu")
+        print(f"{red('0')}. Back to Main Menu")
         time.sleep(0.3)
         print("=============================")
         time.sleep(0.3)
 
-        choice = input(f'Select an option {name} (0-5): ').lower()
+        choice = input(green(f'Select an option {name} (0-5): ')).lower()
 
         if choice == '1':
             os.system('cls')
@@ -86,32 +81,32 @@ def basics(name):
             tries()
         elif choice == '0':
             os.system('cls')
-            print("Returning to Main Menu...")
+            print(cyan("Returning to Main Menu..."))
             break
         else:
-            print("Invalid choice, try again.")
+            print(red("Invalid choice, try again."))
             continue
 
 # Operators Options
 def operators(name):
     while True:
         os.system('cls')
-        print("\n========== OPERATORS ==========")
+        print(f"\n========== {bold(bright_magenta('OPERATORS'))} ==========")
         time.sleep(0.3)
-        print("1. Arithmetic Operators")
+        print(f"{red('1')}. Arithmetic Operators")
         time.sleep(0.3)
-        print("2. Assignment Operators")
+        print(f"{red('2')}. Assignment Operators")
         time.sleep(0.3)
-        print("3. Comparison Operators")
+        print(f"{red('3')}. Comparison Operators")
         time.sleep(0.3)
-        print("4. Logical Operators")
+        print(f"{red('4')}. Logical Operators")
         time.sleep(0.3)
-        print("0. Back to Main Menu")
+        print(f"{red('0')}. Back to Main Menu")
         time.sleep(0.3)
-        print("================================")
+        print("=============================")
         time.sleep(0.3)
 
-        choice = input(f'Select an option {name} (0-4): ').lower()
+        choice = input(green(f'Select an option {name} (0-4): ')).lower()
 
         if choice == '1':
             os.system('cls')
@@ -131,30 +126,30 @@ def operators(name):
             tries()
         elif choice == '0':
             os.system('cls')
-            print("Returning to Main Menu...")
+            print(cyan("Returning to Main Menu..."))
             break
         else:
-            print("Invalid choice, try again.")
+            print(red("Invalid choice, try again."))
             continue
 
 # Conditional Statements Options
 def conditionals(name):
     while True:
         os.system('cls')
-        print("\n====== CONDITIONAL STATEMENTS ======")
+        print(f"\n========== {bold(bright_cyan('CONDITIONAL STATEMENTS'))} ==========")
         time.sleep(0.3)
-        print("1. If/Elif/Else Statements")
+        print(f"{red('1')}. If/Elif/Else Statements")
         time.sleep(0.3)
-        print("2. Nested Conditions")
+        print(f"{red('2')}. Nested Conditions")
         time.sleep(0.3)
-        print("3. Combining Conditions (and/or in if)")
+        print(f"{red('3')}. Combining Conditions (and/or in if)")
         time.sleep(0.3)
-        print("0. Back to Main Menu")
+        print(f"{red('0')}. Back to Main Menu")
         time.sleep(0.3)
-        print("=====================================")
+        print("=============================")
         time.sleep(0.3)
 
-        choice = input(f'Select an option {name} (0-3): ').lower()
+        choice = input(green(f'Select an option {name} (0-3): ')).lower()
 
         if choice == '1':
             os.system('cls')
@@ -170,32 +165,32 @@ def conditionals(name):
             tries()
         elif choice == '0':
             os.system('cls')
-            print("Returning to Main Menu...")
+            print(cyan("Returning to Main Menu..."))
             break
         else:
-            print("Invalid choice, try again.")
+            print(red("Invalid choice, try again."))
             continue
 
 # Loops Options
 def loops(name):
     while True:
         os.system('cls')
-        print("\n========== LOOPS ==========")
+        print(f"\n========== {bold(bright_green('LOOPS'))} ==========")
         time.sleep(0.3)
-        print("1. For Loops")
+        print(f"{red('1')}. For Loops")
         time.sleep(0.3)
-        print("2. While Loops")
+        print(f"{red('2')}. While Loops")
         time.sleep(0.3)
-        print("3. Nested Loops")
+        print(f"{red('3')}. Nested Loops")
         time.sleep(0.3)
-        print("4. Loop Control Statements")
+        print(f"{red('4')}. Loop Control Statements")
         time.sleep(0.3)
-        print("0. Back to Main Menu")
+        print(f"{red('0')}. Back to Main Menu")
         time.sleep(0.3)
         print("=============================")
         time.sleep(0.3)
 
-        choice = input(f'Select an option {name} (0-4): ').lower()
+        choice = input(green(f'Select an option {name} (0-4): ')).lower()
 
         if choice == '1':
             os.system('cls')
@@ -215,34 +210,34 @@ def loops(name):
             tries()
         elif choice == '0':
             os.system('cls')
-            print("Returning to Main Menu...")
+            print(cyan("Returning to Main Menu..."))
             break
         else:
-            print("Invalid choice, try again.")
+            print(red("Invalid choice, try again."))
             continue
 
 # List & Functions Options
 def list_functions(name):
     while True:
         os.system('cls')
-        print("\n====== LIST & FUNCTIONS ======")
+        print(f"\n========== {bold(bright_yellow('LIST & FUNCTIONS'))} ==========")
         time.sleep(0.3)
-        print("1. Lists")
+        print(f"{red('1')}. Lists")
         time.sleep(0.3)
-        print("2. Functions")
+        print(f"{red('2')}. Functions")
         time.sleep(0.3)
-        print("3. Def or define ")
+        print(f"{red('3')}. Def or Define")
         time.sleep(0.3)
-        print("4. Importing Random")
+        print(f"{red('4')}. Importing Random")
         time.sleep(0.3)
-        print("5. Dictionaries")
+        print(f"{red('5')}. Dictionaries")
         time.sleep(0.3)
-        print("0. Back to Main Menu")
+        print(f"{red('0')}. Back to Main Menu")
         time.sleep(0.3)
-        print("================================")
+        print("=============================")
         time.sleep(0.3)
 
-        choice = input(f'Select an option {name} (0-5): ').lower()
+        choice = input(green(f'Select an option {name} (0-5): ')).lower()
 
         if choice == '1':
             os.system('cls')
@@ -258,7 +253,7 @@ def list_functions(name):
             tries()
         elif choice == '4':
             os.system('cls')
-            importing_random
+            importing_random()
             tries()
         elif choice == '5':
             os.system('cls')
@@ -266,54 +261,54 @@ def list_functions(name):
             tries()
         elif choice == '0':
             os.system('cls')
-            print("Returning to Main Menu...")
+            print(cyan("Returning to Main Menu..."))
             break
         else:
-            print("Invalid choice, try again.")
+            print(red("Invalid choice, try again."))
             continue
 
 # Challenges Options
 def challenges(name):
     while True:
         os.system('cls')
-        print("\n========== CHALLENGES ==========")
+        print(f"\n========== {bold(bright_red('CHALLENGES'))} ==========")
         time.sleep(0.3)
-        print("1. Diamond with Name")
+        print(f"{red('1')}. Diamond with Name")
         time.sleep(0.3)
-        print("2. ATM Denomination")
+        print(f"{red('2')}. ATM Denomination")
         time.sleep(0.3)
-        print("3. Student Discount Checker")
+        print(f"{red('3')}. Student Discount Checker")
         time.sleep(0.3)
-        print("4. Manga Recommender")
+        print(f"{red('4')}. Manga Recommender")
         time.sleep(0.3)
-        print("5. Factorial Calculator")
+        print(f"{red('5')}. Factorial Calculator")
         time.sleep(0.3)
-        print("6. Odd Number Summation")
+        print(f"{red('6')}. Odd Number Summation")
         time.sleep(0.3)
-        print("7. Countdown Simulator")
+        print(f"{red('7')}. Countdown Simulator")
         time.sleep(0.3)
-        print("8. Multiplication Table")
+        print(f"{red('8')}. Multiplication Table")
         time.sleep(0.3)
-        print("9. Parrot Simulator")
+        print(f"{red('9')}. Parrot Simulator")
         time.sleep(0.3)
-        print("10. Reversed Staircase")
+        print(f"{red('10')}. Reversed Staircase")
         time.sleep(0.3)
-        print("11. Triangle Pattern")
+        print(f"{red('11')}. Triangle Pattern")
         time.sleep(0.3)
-        print("12. Pyramid Number")
+        print(f"{red('12')}. Pyramid Number")
         time.sleep(0.3)
-        print("13. Odd/Even Summation")
+        print(f"{red('13')}. Odd/Even Summation")
         time.sleep(0.3)
-        print("14. Anime List Maker")
+        print(f"{red('14')}. Anime List Maker")
         time.sleep(0.3)
-        print("15. Student Information System")
+        print(f"{red('15')}. Student Information System")
         time.sleep(0.3)
-        print("0. Back to Main Menu")
+        print(f"{red('0')}. Back to Main Menu")
         time.sleep(0.3)
-        print("===============================")
+        print("=============================")
         time.sleep(0.3)
 
-        choice = input(f'Select a challenge {name} (0-15): ').lower()
+        choice = input(green(f'Select a challenge {name} (0-15): ')).lower()
 
         if choice == '1':
             os.system('cls')
@@ -362,9 +357,86 @@ def challenges(name):
             challenge_15()
         elif choice == '0':
             os.system('cls')
-            print("Returning to Main Menu...")
+            print(cyan("Returning to Main Menu..."))
             break
         else:
-            print("Invalid choice, try again.")
-            time.sleep(0.7)
+            print(red("Invalid choice, try again."))
             continue
+
+# Extra Lessons
+def extras(name):
+    while True:
+        os.system('cls')
+        print(f"\n========== {bold(bright_magenta('EXTRA LESSONS MENU'))} ==========")
+        time.sleep(0.3)
+        print(f"Hello {name}, choose an extra lesson to explore:\n")
+        time.sleep(0.3)
+
+        print(f"{red('1')}. ANSI Codes")
+        time.sleep(0.3)
+        print(f"{red('2')}. Time / Sleep")
+        time.sleep(0.3)
+        print(f"{red('3')}. Exec")
+        time.sleep(0.3)
+        print(f"{red('4')}. Try")
+        time.sleep(0.3)
+        print(f"{red('5')}. String Methods")
+        time.sleep(0.3)
+        print(f"{red('0')}. Return to Main Menu\n")
+        time.sleep(0.3)
+
+        pick = input(green(f"Select an option {name} (0-5): ")).strip()
+
+        if pick == "1":
+            colors()
+        elif pick == "2":
+            time_sleep()
+        elif pick == "3":
+            execs()
+        elif pick == "4":
+            try_lesson()
+        elif pick == "5":
+            strings()
+        elif pick == "0":
+            os.system('cls')
+            print(cyan("Returning to Main Menu..."))
+            time.sleep(0.3)
+            break
+        else:
+            print(red("Invalid input! Please enter a number between 0 and 4."))
+            time.sleep(0.3)
+
+# Guess The Output
+def guess(name):
+    while True:
+        os.system('cls')
+        print(f"\n========== {bold(bright_magenta('GUESS THE OUTPUT'))} ==========")
+        time.sleep(0.3)
+        print(f"Hello {name}, choose difficulty:\n")
+        time.sleep(0.3)
+
+        print(f"{red('1')}. Easy")
+        time.sleep(0.3)
+        print(f"{red('2')}. Medium")
+        time.sleep(0.3)
+        print(f"{red('3')}. Hard")
+        time.sleep(0.3)
+        print(f"{red('0')}. Back to Extra Lessons\n")
+        time.sleep(0.3)
+
+        pick = input(green(f"Select difficulty {name} (0-3): ")).strip()
+
+        if pick == "1":
+            guess_easy("Easy")
+        elif pick == "2":
+            guess_medium("Medium")
+        elif pick == "3":
+            guess_hard("Hard")
+        elif pick == "0":
+            os.system('cls')
+            print(cyan("Returning to Extra Lessons Menu..."))
+            time.sleep(0.3)
+            break
+        else:
+            print(red("Invalid input! Please enter a number between 0 and 3."))
+            time.sleep(0.3)

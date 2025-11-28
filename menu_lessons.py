@@ -1,8 +1,36 @@
 import time, os
 
+# Colors
+RESET = "\033[0m"
+
+def apply(text, *codes):
+    return "".join(codes) + text + RESET
+
+# Text Colors
+def black(t): return apply(t, "\033[30m")
+def red(t): return apply(t, "\033[31m")
+def green(t): return apply(t, "\033[32m")
+def yellow(t): return apply(t, "\033[33m")
+def white(t): return apply(t, "\033[37m")
+def magenta(t): return apply(t, "\033[35m")
+def cyan(t): return apply(t, "\033[36m")
+
+def bright_black(t): return apply(t, "\033[90m")
+def bright_red(t): return apply(t, "\033[91m")
+def bright_yellow(t): return apply(t, "\033[93m")
+def bright_green(t): return apply(t, "\033[92m")
+def bright_magenta(t): return apply(t, "\033[95m")
+def bright_cyan(t): return apply(t, "\033[96m")
+def bright_white(t): return apply(t, "\033[97m")
+
+# Styles
+def bold(t): return apply(t, "\033[1m")
+def italic(t): return apply(t, "\033[3m")
+def underline(t): return apply(t, "\033[4m")
+
 # TRY
 def tries():
-    choice = input("\nWould you like to try this yourself?\n\tY to continue & N to return:").lower()
+    choice = input(green("\nWould you like to try this yourself?\n|   Y to continue & N to return:   |")).lower()
 
     if choice != 'y':
         os.system('cls')
@@ -12,7 +40,7 @@ def tries():
 
     while True:
         os.system('cls')
-        print("\n=================== TRY IT YOURSELF ===================")
+        print(f"\n==================== {bold(bright_yellow('TRY IT YOURSELF'))} ====================")
         time.sleep(0.3)
         print("Type Python code using the concepts you learned.")
         time.sleep(0.3)
@@ -24,13 +52,13 @@ def tries():
         time.sleep(0.3)
         print("- input(), import, exit(), quit() are NOT allowed here.")
         time.sleep(0.3)
-        print("========================================================\n")
+        print("=========================================================\n")
         time.sleep(0.3)
 
         user_lines = []
 
         while True:
-            line = input("> ")
+            line = input(green("> "))
 
             if line.lower() == "return":
                 os.system('cls')
@@ -41,25 +69,25 @@ def tries():
 
             low_line = line.replace(" ", "").lower()
             if any(f in low_line for f in forbidden):
-                print("This command is not allowed here. Try again.")
+                print(red("This command is not allowed here. Try again."))
                 continue
 
             user_lines.append(line)
 
-        print("\n============== OUTPUT ==============")
+        print(f"\n========== {bold(bright_cyan('OUTPUT'))} ==========")
         code = "\n".join(user_lines)
 
         try:
             exec(code)
             print("\n\n(Your code is working!)")
         except:
-            print("There was an error in your code. Please try again.")
-            print("====================================")
-            input("\nPress Enter to retry...")
+            print(red("There was an error in your code. Please try again."))
+            print("===============================")
+            input(green("\nPress Enter to retry..."))
             continue
 
-        print("====================================")
-        again = input("\nTry another code? (y/n): ").lower()
+        print("===============================")
+        again = input(green("\nTry another code? (y/n): ")).lower()
         if again != 'y':
             os.system('cls')
             break
@@ -68,7 +96,7 @@ def tries():
             
 # Print Lesson
 def prints():
-    print("\n==================== PRINT STATEMENTS ====================")
+    print(f"\n========== {bold(bright_magenta('PRINT STATEMENTS'))} ==========")
     time.sleep(0.3)
     print("The print() function displays output on the screen like")
     time.sleep(0.3)
@@ -82,16 +110,16 @@ def prints():
     time.sleep(0.3)
 
     # Examples
-    print("\nExample 1: Using Print")
+    print(f"\n{bold('Example 1: Using Print')}")
     time.sleep(0.3)
     print("\nINPUT:\nprint('Hello, World!')")
     time.sleep(0.3)
     print("\nOUTPUT:\nHello, World!\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
     
-    print("Example 2: Using End")
+    print(f"{bold('Example 2: Using End')}")
     time.sleep(0.3)
     print("\nINPUT:\nprint('Hello', end='-')")
     time.sleep(0.3)
@@ -102,7 +130,7 @@ def prints():
 
 # Input & Variables Lesson
 def inputs():
-    print("\n==================== INPUT & VARIABLES ====================")
+    print(f"\n========== {bold(bright_magenta('INPUT & VARIABLES'))} ==========")
     time.sleep(0.3)
     print("The input() function allows you to take input from the user")
     time.sleep(0.3)
@@ -113,28 +141,28 @@ def inputs():
     print("some examples now.\n")
     time.sleep(0.3)
 
-
     # Examples
-    print("Example 1: Using Input")
+    print(f"{bold('Example 1: Using Input')}")
     time.sleep(0.3)
     print("INPUT:\nname = input('Enter your name: ')\nprint('Hello, ' + name)")
     time.sleep(0.3)
     print("\nOUTPUT:\nEnter your name: Alice\nHello, Alice\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Giving Value in Variable")
+    print(f"{bold('Example 2: Giving Value in Variable')}")
     time.sleep(0.3)
     print("INPUT:\nname = 'Ace'\nprint('Hello ' + name)")
     time.sleep(0.3)
     print("OUTPUT:\nHello Ace")
-    input('\nPress Enter to see next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 3: Using Variables")
+    print(f"{bold('Example 3: Using Variables')}")
     time.sleep(0.3)
-    print("INPUT:\nage = 25\nprint('You are ' + age + ' years old.')")
+    print("INPUT:\nage = 25\nprint('You are ' + str(age) + ' years old.')")
     time.sleep(0.3)
     print("\nOUTPUT:\nYou are 25 years old.\n")
     time.sleep(0.3)
@@ -143,10 +171,9 @@ def inputs():
     time.sleep(0.3)
     print("Note: You can also use , as alternative to + for concatenation in print.")
 
-
 # Escape Sequences Lesson
 def escape_sequences():
-    print("\n==================== ESCAPE SEQUENCES ====================")
+    print(f"\n========== {bold(bright_magenta('ESCAPE SEQUENCES'))} ==========")
     time.sleep(0.3)
     print("Escape sequences are special characters used in strings to")
     time.sleep(0.3)
@@ -158,78 +185,52 @@ def escape_sequences():
     time.sleep(0.3)
 
     # Examples
-
-    # New line
-    print("Example 1: Newline (\\n)")
+    print(f"{bold('Example 1: Newline (\\n)')}")
     time.sleep(0.3)
     print("INPUT:\nprint('Hello\\nWorld!')")
     time.sleep(0.3)
     print("\nOUTPUT:\nHello\nWorld!\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Tab
-    print("Example 2: Tab (\\t)")
+    print(f"{bold('Example 2: Tab (\\t)')}")
     time.sleep(0.3)
     print("INPUT:\nprint('Hello\\tWorld!')")
     time.sleep(0.3)
     print("\nOUTPUT:\nHello\tWorld!\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Backslash
-    print("Example 3: Backslash (\\\\)")
+    print(f"{bold('Example 3: Backslash (\\\\)')}")
     time.sleep(0.3)
     print("INPUT:\nprint('This is a backslash: \\\\')")
     time.sleep(0.3)
     print("\nOUTPUT:\nThis is a backslash: \\\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Single Quote
-    print("Example 4: Single Quote (\\')")
+    print(f"{bold('Example 4: Single Quote (\\\')')}")
     time.sleep(0.3)
     print("INPUT:\nprint('It\\'s sunny today!')")
     time.sleep(0.3)
     print("\nOUTPUT:\nIt's sunny today!\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Double Quote
-    print('Example 5: Double Quote (\\")')
+    print(f"{bold('Example 5: Double Quote (\\\")')}")
     time.sleep(0.3)
     print('INPUT:\nprint("He said \\"Hello\\"")')
     time.sleep(0.3)
     print('\nOUTPUT:\nHe said "Hello"\n')
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
-    time.sleep(0.3)
-
-    # Carriage Return
-    print("Example 6: Carriage Return (\\r)")
-    time.sleep(0.3)
-    print("INPUT:\nprint('Hello\\rHi')")
-    time.sleep(0.3)
-    print("\nOUTPUT:\nHi\n(Hello is overwritten)\n")
-    time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
-    time.sleep(0.3)
-
-    # Backspace
-    print("Example 7: Backspace (\\b)")
-    time.sleep(0.3)
-    print("INPUT:\nprint('Hellooo\\b')")
-    time.sleep(0.3)
-    print("\nOUTPUT:\nHelloo\n")
-    time.sleep(0.3)
 
 # Length Lesson
 def length():
-    print("\n==================== LENGTH ====================")
+    print(f"\n========== {bold(bright_magenta('LENGTH'))} ==========")
     time.sleep(0.3)
     print("The len() function is used to determine the length of")
     time.sleep(0.3)
@@ -239,28 +240,27 @@ def length():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Length of a String")
+    print(f"{bold('Example 1: Length of a String')}")
     time.sleep(0.3)
     print("INPUT:\ntext = 'Hello World'\nprint(len(text))")
     time.sleep(0.3)
     print("\nOUTPUT:\n11\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Length of a List")
+    print(f"{bold('Example 2: Length of a List')}")
     time.sleep(0.3)
     print("INPUT:\nnumbers = [1, 2, 3, 4, 5]\nprint(len(numbers))")
     time.sleep(0.3)
     print("\nOUTPUT:\n5\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
-    time.sleep(0.3)
+    input(green('\nPress Enter to continue...'))
 
 
 # Eval Lesson
 def evals():
-    print("\n==================== EVAL & TYPE FUNCTIONS ====================")
+    print(f"\n========== {bold(bright_magenta('EVAL & TYPE FUNCTIONS'))} ==========")
     time.sleep(0.3)
     print("The eval() function takes a string and evaluates it as a Python expression.")
     time.sleep(0.3)
@@ -278,16 +278,16 @@ def evals():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Evaluating a Mathematical Expression")
+    print(f"{bold('Example 1: Evaluating a Mathematical Expression')}")
     time.sleep(0.3)
     print("INPUT:\nexpression = '2 + 3 * 4'\nresult = eval(expression)\nprint(result)")
     time.sleep(0.3)
     print("\nOUTPUT:\n14\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Using int(), float(), str(), type()")
+    print(f"{bold('Example 2: Using int(), float(), str(), type()')}")
     time.sleep(0.3)
     print("INPUT:")
     time.sleep(0.3)
@@ -308,7 +308,6 @@ def evals():
     print("123 123.0 123")
     time.sleep(0.3)
     print("<class 'int'> <class 'float'> <class 'str'>\n")
-    time.sleep(0.3)
 
 # END OF BASICS LESSONS
 
@@ -316,7 +315,7 @@ def evals():
 
 # Arithmetic Operators Lesson
 def arithmetic():
-    print("\n==================== ARITHMETIC OPERATORS ====================")
+    print(f"\n========== {bold(bright_magenta('ARITHMETIC OPERATORS'))} ==========")
     time.sleep(0.3)
     print("Arithmetic operators are used to perform mathematical")
     time.sleep(0.3)
@@ -328,9 +327,10 @@ def arithmetic():
     time.sleep(0.3)
 
     # Examples
-    print("Example: Basic Arithmetic Operations")
+    print(f"{bold('Example: Basic Arithmetic Operations')}")
     time.sleep(0.3)
     print("INPUT:\na = 10\nb = 3\n")
+    time.sleep(0.3)
     print("print('Addition:', a + b)")
     time.sleep(0.3)
     print("print('Subtraction:', a - b)")
@@ -364,7 +364,7 @@ def arithmetic():
 
 # Assigntment Operators Lesson
 def assignment():
-    print("\n==================== ASSIGNMENT OPERATORS ====================")
+    print(f"\n========== {bold(bright_magenta('ASSIGNMENT OPERATORS'))} ==========")
     time.sleep(0.3)
     print("Assignment operators are used to assign values to")
     time.sleep(0.3)
@@ -374,9 +374,10 @@ def assignment():
     time.sleep(0.3)
 
     # Examples
-    print("Example: Basic Assignment Operations")
+    print(f"{bold('Example: Basic Assignment Operations')}")
     time.sleep(0.3)
     print("INPUT:\nx = 5\n")
+    time.sleep(0.3)
     print("x += 3  # Equivalent to x = x + 3")
     time.sleep(0.3)
     print("print('After += 3:', x)")
@@ -406,7 +407,7 @@ def assignment():
 
 # Comparison Operators Lesson
 def comparison():
-    print("\n================= COMPARISON OPERATORS =================")
+    print(f"\n========== {bold(bright_magenta('COMPARISON OPERATORS'))} ==========")
     time.sleep(0.3)
     print("Comparison operators are used to compare two values.")
     time.sleep(0.3)
@@ -416,9 +417,10 @@ def comparison():
     time.sleep(0.3)
 
     # Examples
-    print("Example: Basic Comparison Operations")
+    print(f"{bold('Example: Basic Comparison Operations')}")
     time.sleep(0.3)
     print("INPUT:\na = 10\nb = 20\n")
+    time.sleep(0.3)
     print("print('a == b:', a == b)") 
     time.sleep(0.3)
     print("print('a != b:', a != b)")
@@ -448,7 +450,7 @@ def comparison():
 
 # Logical Operators Lesson
 def logical():
-    print("\n==================== LOGICAL OPERATORS ====================")
+    print(f"\n========== {bold(bright_magenta('LOGICAL OPERATORS'))} ==========")
     time.sleep(0.3)
     print("Logical operators are used to combine conditional")
     time.sleep(0.3)
@@ -458,26 +460,27 @@ def logical():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Using 'and' Operator")
+    print(f"{bold('Example 1: Using \'and\' Operator')}")
     time.sleep(0.3)
     print("INPUT:\na = 10\nb = 20\n")
+    time.sleep(0.3)
     print("print('a > 5 and b < 25:', a > 5 and b < 25)")
     time.sleep(0.3)
     print("\nOUTPUT:\nTrue\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Using 'or' Operator")
+    print(f"{bold('Example 2: Using \'or\' Operator')}")
     time.sleep(0.3)
     print("INPUT:\nprint('a < 5 or b < 25:', a < 5 or b < 25)")
     time.sleep(0.3)
     print("\nOUTPUT:\nTrue\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 3: Using 'not' Operator")
+    print(f"{bold('Example 3: Using \'not\' Operator')}")
     time.sleep(0.3)
     print("INPUT:\nprint('not (a > 5):', not (a > 5))")
     time.sleep(0.3)
@@ -490,7 +493,7 @@ def logical():
 
 # If Elif Else Lesson
 def if_elif_else():
-    print("\n==================== If Elif Else ====================")
+    print(f"\n========== {bold(bright_magenta('IF ELIF ELSE'))} ==========")
     time.sleep(0.3)
     print("Conditional statements allow you to execute certain")
     time.sleep(0.3)
@@ -500,21 +503,23 @@ def if_elif_else():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Using if Statement")
+    print(f"{bold('Example 1: Using if Statement')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 10\n")
+    time.sleep(0.3)
     print("if num > 5:")
     time.sleep(0.3)
     print("    print('Number is greater than 5')")
     time.sleep(0.3)
     print("\nOUTPUT:\nNumber is greater than 5\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Using if-else Statement")
+    print(f"{bold('Example 2: Using if-else Statement')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 3\n")
+    time.sleep(0.3)
     print("if num > 5:")
     time.sleep(0.3)
     print("    print('Number is greater than 5')")
@@ -525,12 +530,13 @@ def if_elif_else():
     time.sleep(0.3)
     print("\nOUTPUT:\nNumber is 5 or less\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 3: Using if-elif-else Statement")
+    print(f"{bold('Example 3: Using if-elif-else Statement')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 5\n")
+    time.sleep(0.3)
     print("if num > 5:")
     time.sleep(0.3)
     print("    print('Number is greater than 5')")
@@ -546,12 +552,12 @@ def if_elif_else():
     print("\nOUTPUT:\nNumber is equal to 5\n")
     time.sleep(0.3)
 
-    # Note
-    print("Note: Common mistake is using = instead of == for some comparison.")
+    print(f"{bold('Note:')} Common mistake is using = instead of == for some comparison.")
+    time.sleep(0.3)
 
 # Nested Conditions Lesson
 def nested():
-    print("\n==================== Nested Conditions ====================")
+    print(f"\n========== {bold(bright_magenta('NESTED CONDITIONS'))} ==========")
     time.sleep(0.3)
     print("Nested conditions are conditional statements placed")
     time.sleep(0.3)
@@ -561,9 +567,10 @@ def nested():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Basic Nested if Statements")
+    print(f"{bold('Example 1: Basic Nested if Statements')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 15\n")
+    time.sleep(0.3)
     print("if num > 10:")
     time.sleep(0.3)
     print("    if num < 20:")
@@ -572,12 +579,13 @@ def nested():
     time.sleep(0.3)
     print("\nOUTPUT:\nNumber is between 10 and 20\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Nested if-else Statements")
+    print(f"{bold('Example 2: Nested if-else Statements')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 25\n")
+    time.sleep(0.3)
     print("if num > 10:")
     time.sleep(0.3)
     print("    if num < 20:")
@@ -596,10 +604,11 @@ def nested():
     print("greater than 10. If true, the inner if-else checks if num")
     time.sleep(0.3)
     print("is less than 20 or not, and prints the appropriate message.")
+    time.sleep(0.3)
 
 # Combining Conditions Lesson
 def combining():
-    print("\n==================== Combining Conditions ====================")
+    print(f"\n========== {bold(bright_magenta('COMBINING CONDITIONS'))} ==========")
     time.sleep(0.3)
     print("Combining conditions using logical operators (and, or, not)")
     time.sleep(0.3)
@@ -607,33 +616,36 @@ def combining():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Using 'and' to Combine Conditions")
+    print(f"{bold('Example 1: Using \'and\' to Combine Conditions')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 15\n")
+    time.sleep(0.3)
     print("if num > 10 and num < 20:")
     time.sleep(0.3)
     print("    print('Number is between 10 and 20')")
     time.sleep(0.3)
     print("\nOUTPUT:\nNumber is between 10 and 20\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Using 'or' to Combine Conditions")
+    print(f"{bold('Example 2: Using \'or\' to Combine Conditions')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 5\n")
+    time.sleep(0.3)
     print("if num < 10 or num > 20:")
     time.sleep(0.3)
     print("    print('Number is either less than 10 or greater than 20')")
     time.sleep(0.3)
     print("\nOUTPUT:\nNumber is either less than 10 or greater than 20\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 3: Using 'not' to Negate a Condition")
+    print(f"{bold('Example 3: Using \'not\' to Negate a Condition')}")
     time.sleep(0.3)
     print("INPUT:\nnum = 15\n")
+    time.sleep(0.3)
     print("if not (num < 10):")
     time.sleep(0.3)
     print("    print('Number is 10 or greater')")
@@ -647,7 +659,7 @@ def combining():
 
 # For Loops Lesson
 def for_loops():
-    print("\n==================== FOR LOOPS ====================")
+    print(f"\n========== {bold(bright_magenta('FOR LOOPS'))} ==========")
     time.sleep(0.3)
     print("For loops are used to iterate over a sequence (like")
     time.sleep(0.3)
@@ -657,7 +669,7 @@ def for_loops():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Basic For Loop")
+    print(f"{bold('Example 1: Basic For Loop')}")
     time.sleep(0.3)
     print("INPUT:\nfor i in range(5):")
     time.sleep(0.3)
@@ -675,12 +687,13 @@ def for_loops():
     time.sleep(0.3)
     print("Iteration 4\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
-    
-    print("Example 2: Iterating Over a List")
+
+    print(f"{bold('Example 2: Iterating Over a List')}")
     time.sleep(0.3)
     print("INPUT:\nnumbers = [10, 20, 30, 40, 50]\n")
+    time.sleep(0.3)
     print("for num in numbers:")
     time.sleep(0.3)
     print("    print('Number:', num)")
@@ -709,7 +722,7 @@ def for_loops():
 
 # While Loops Lesson
 def while_loops():
-    print("\n==================== WHILE LOOPS ====================")
+    print(f"\n========== {bold(bright_magenta('WHILE LOOPS'))} ==========")
     time.sleep(0.3)
     print("While loops repeatedly execute a block of code as long")
     time.sleep(0.3)
@@ -717,9 +730,10 @@ def while_loops():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Basic While Loop")
+    print(f"{bold('Example 1: Basic While Loop')}")
     time.sleep(0.3)
     print("INPUT:\ncount = 0\n")
+    time.sleep(0.3)
     print("while count < 5:")
     time.sleep(0.3)
     print("    print('Count is', count)")
@@ -738,12 +752,13 @@ def while_loops():
     time.sleep(0.3)
     print("Count is 4\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: While True Loop with Break")
+    print(f"{bold('Example 2: While True Loop with Break')}")
     time.sleep(0.3)
     print("INPUT:\ncount = 0\n")
+    time.sleep(0.3)
     print("while True:")
     time.sleep(0.3)
     print("    print('Count is', count)")
@@ -773,7 +788,7 @@ def while_loops():
 
 # Nested Loops Lesson
 def nested_loops():
-    print("\n==================== NESTED LOOPS ====================")
+    print(f"\n========== {bold(bright_magenta('NESTED LOOPS'))} ==========")
     time.sleep(0.3)
     print("Nested loops are loops placed inside other loops.")
     time.sleep(0.3)
@@ -783,9 +798,10 @@ def nested_loops():
     time.sleep(0.3)
 
     # Examples
-    print("Example: Basic Nested For Loops")
+    print(f"{bold('Example: Basic Nested For Loops')}")
     time.sleep(0.3)
     print("INPUT:\nmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n")
+    time.sleep(0.3)
     print("for row in matrix:")
     time.sleep(0.3)
     print("    for item in row:")
@@ -812,7 +828,7 @@ def nested_loops():
 
 # Loop Control Statements Lesson
 def loop_control():
-    print("\n==================== LOOP CONTROL STATEMENTS ====================")
+    print(f"\n========== {bold(bright_magenta('LOOP CONTROL STATEMENTS'))} ==========")
     time.sleep(0.3)
     print("Loop control statements like break and continue allow")
     time.sleep(0.3)
@@ -822,7 +838,7 @@ def loop_control():
     time.sleep(0.3)
 
     # Examples
-    print("Example 1: Using 'break' Statement")
+    print(f"{bold('Example 1: Using break Statement')}")
     time.sleep(0.3)
     print("INPUT:\nfor i in range(10):")
     time.sleep(0.3)
@@ -844,10 +860,10 @@ def loop_control():
     time.sleep(0.3)
     print("Iteration 4\n")
     time.sleep(0.3)
-    input('\nPress Enter to see next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    print("Example 2: Using 'continue' Statement")
+    print(f"{bold('Example 2: Using continue Statement')}")
     time.sleep(0.3)
     print("INPUT:\nfor i in range(10):")
     time.sleep(0.3)
@@ -875,81 +891,62 @@ def loop_control():
     print("In the second example, even numbers are skipped, and only odd")
     time.sleep(0.3)
     print("numbers are printed.")
+    time.sleep(0.3)
 
 # End of Loops Lessons
 
 # List & Functions Lessons
 
 # Lists Lesson
-
 def lists():
-    import time
-
-    print("\n==================== LISTS ====================")
+    print(f"\n========== {bold(bright_yellow('LISTS'))} ==========")
     time.sleep(0.3)
     print("Lists are used to store multiple items in a single variable.")
     time.sleep(0.3)
     print("They are ordered, changeable, and allow duplicate values.\n")
     time.sleep(0.3)
 
-    # Example 1: Creating and Accessing a List
-    print("Example 1: Creating and Accessing a List")
+    # Examples
+    print(f"{bold('Example 1: Creating and Accessing a List')}")
     time.sleep(0.3)
     print("INPUT:\nmy_list = [10, 20, 30, 40]")
     time.sleep(0.3)
     print("print(my_list[0])  # Access first item")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\n10\n")
     time.sleep(0.3)
-    print("10\n")
-    time.sleep(0.3)
-    print("Explanation: Lists are indexed. Index 0 refers to the first element.\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 2: Adding and Removing Items
-    print("Example 2: Adding and Removing Items")
+    print(f"{bold('Example 2: Adding and Removing Items')}")
     time.sleep(0.3)
     print("INPUT:\nmy_list = [1, 2, 3]")
     time.sleep(0.3)
-    print("my_list.append(4)   # Add item at the end")
+    print("my_list.append(4)")
     time.sleep(0.3)
-    print("my_list.remove(2)   # Remove item with value 2")
+    print("my_list.remove(2)")
     time.sleep(0.3)
     print("print(my_list)")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\n[1, 3, 4]\n")
     time.sleep(0.3)
-    print("[1, 3, 4]\n")
-    time.sleep(0.3)
-    print("Explanation: append() adds an item at the end, remove() deletes a specified item.\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 3: Indexing in Lists
-    print("Example 3: Indexing in Lists")
+    print(f"{bold('Example 3: Indexing in Lists')}")
     time.sleep(0.3)
     print("INPUT:\nmy_list = ['a', 'b', 'c', 'd']")
     time.sleep(0.3)
     print("print(my_list[1])  # Access second item")
     time.sleep(0.3)
-    print("print(my_list[-1]) # Access last item using negative index")
+    print("print(my_list[-1]) # Access last item")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\nb\nd\n")
     time.sleep(0.3)
-    print("b")
-    time.sleep(0.3)
-    print("d\n")
-    time.sleep(0.3)
-    print("Explanation: Positive indices start from 0, negative indices start from -1 (last element).\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 4: Looping through a List
-    print("Example 4: Looping through a List")
+    print(f"{bold('Example 4: Looping through a List')}")
     time.sleep(0.3)
     print("INPUT:\nmy_list = ['apple', 'banana', 'cherry']")
     time.sleep(0.3)
@@ -957,21 +954,12 @@ def lists():
     time.sleep(0.3)
     print("    print(fruit)")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\napple\nbanana\ncherry\n")
     time.sleep(0.3)
-    print("apple")
-    time.sleep(0.3)
-    print("banana")
-    time.sleep(0.3)
-    print("cherry\n")
-    time.sleep(0.3)
-    print("Explanation: A for loop can iterate over each item in a list.\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 5: insert()
-    print("Example 5: Using insert() to add an item at a specific position")
+    print(f"{bold('Example 5: Using insert()')}")
     time.sleep(0.3)
     print("INPUT:\nmy_list = [1, 2, 4, 5]")
     time.sleep(0.3)
@@ -979,17 +967,12 @@ def lists():
     time.sleep(0.3)
     print("print(my_list)")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\n[1, 2, 3, 4, 5]\n")
     time.sleep(0.3)
-    print("[1, 2, 3, 4, 5]\n")
-    time.sleep(0.3)
-    print("Explanation: insert(index, value) places the value at the specified index.\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 6: pop()
-    print("Example 6: Using pop() to remove an item by index")
+    print(f"{bold('Example 6: Using pop()')}")
     time.sleep(0.3)
     print("INPUT:\nmy_list = [10, 20, 30, 40]")
     time.sleep(0.3)
@@ -997,17 +980,12 @@ def lists():
     time.sleep(0.3)
     print("print(my_list)")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\n[10, 20, 40]\n")
     time.sleep(0.3)
-    print("[10, 20, 40]\n")
-    time.sleep(0.3)
-    print("Explanation: pop(index) removes and returns the item at the specified index.\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 7: sort()
-    print("Example 7: Using sort() to order the list")
+    print(f"{bold('Example 7: Using sort()')}")
     time.sleep(0.3)
     print("INPUT:\nmy_list = [4, 2, 5, 1, 3]")
     time.sleep(0.3)
@@ -1015,47 +993,22 @@ def lists():
     time.sleep(0.3)
     print("print(my_list)")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\n[1, 2, 3, 4, 5]\n")
     time.sleep(0.3)
-    print("[1, 2, 3, 4, 5]\n")
-    time.sleep(0.3)
-    print("Explanation: sort() arranges the items in ascending order.\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 8: copy()
-    print("Example 8: Using copy() to duplicate a list")
-    time.sleep(0.3)
-    print("INPUT:\nmy_list = [1, 2, 3]")
-    time.sleep(0.3)
-    print("new_list = my_list.copy()")
-    time.sleep(0.3)
-    print("print(new_list)")
-    time.sleep(0.3)
-    print("\nOUTPUT:")
-    time.sleep(0.3)
-    print("[1, 2, 3]\n")
-    time.sleep(0.3)
-    print("Explanation: copy() creates a shallow copy of the list that can be modified independently.\n")
-    time.sleep(0.3)
-    input('\nPress Enter to proceed to next example: ')
-    time.sleep(0.3)
-
-# Functions
-
+# FUNCTIONS LESSON
 def functions():
-    import time
-
-    print("\n==================== FUNCTIONS ====================")
+    print(f"\n========== {bold(bright_cyan('FUNCTIONS'))} ==========")
     time.sleep(0.3)
     print("Functions are reusable blocks of code that perform a specific task.")
     time.sleep(0.3)
     print("They help make programs organized, modular, and easier to read.\n")
     time.sleep(0.3)
 
-    # Example 1: Defining and Calling a Function
-    print("Example 1: Defining and Calling a Function")
+    # Examples
+    print(f"{bold('Example 1: Defining and Calling a Function')}")
     time.sleep(0.3)
     print("INPUT:\ndef greet():")
     time.sleep(0.3)
@@ -1063,16 +1016,12 @@ def functions():
     time.sleep(0.3)
     print("greet()")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\nHello!\n")
     time.sleep(0.3)
-    print("Hello!\n")
-    time.sleep(0.3)
-    print("Explanation: Define the function using 'def' and call it by its name.\n")
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 2: Function with Parameters
-    print("Example 2: Function with Parameters")
+    print(f"{bold('Example 2: Function with Parameters')}")
     time.sleep(0.3)
     print("INPUT:\ndef greet(name):")
     time.sleep(0.3)
@@ -1080,16 +1029,12 @@ def functions():
     time.sleep(0.3)
     print("greet('Alice')")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\nHello, Alice\n")
     time.sleep(0.3)
-    print("Hello, Alice\n")
-    time.sleep(0.3)
-    print("Explanation: Parameters allow you to pass information into functions.\n")
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 3: Function with Return Value
-    print("Example 3: Function with Return Value")
+    print(f"{bold('Example 3: Function with Return Value')}")
     time.sleep(0.3)
     print("INPUT:\ndef add(a, b):")
     time.sleep(0.3)
@@ -1099,16 +1044,12 @@ def functions():
     time.sleep(0.3)
     print("print(result)")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\n8\n")
     time.sleep(0.3)
-    print("8\n")
-    time.sleep(0.3)
-    print("Explanation: The 'return' statement sends a value back from the function.\n")
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 4: Function with Default Parameters
-    print("Example 4: Function with Default Parameters")
+    print(f"{bold('Example 4: Function with Default Parameters')}")
     time.sleep(0.3)
     print("INPUT:\ndef greet(name='User'):")
     time.sleep(0.3)
@@ -1118,18 +1059,12 @@ def functions():
     time.sleep(0.3)
     print("greet('Bob')")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\nHello, User\nHello, Bob\n")
     time.sleep(0.3)
-    print("Hello, User")
-    time.sleep(0.3)
-    print("Hello, Bob\n")
-    time.sleep(0.3)
-    print("Explanation: Default parameters are used when no argument is provided.\n")
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 5: Function with Multiple Return Values
-    print("Example 5: Function with Multiple Return Values")
+    print(f"{bold('Example 5: Function with Multiple Return Values')}")
     time.sleep(0.3)
     print("INPUT:\ndef operations(x, y):")
     time.sleep(0.3)
@@ -1141,32 +1076,24 @@ def functions():
     time.sleep(0.3)
     print("print('Product:', product)")
     time.sleep(0.3)
-    print("\nOUTPUT:")
+    print("\nOUTPUT:\nSum: 9\nProduct: 20\n")
     time.sleep(0.3)
-    print("Sum: 9")
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
-    print("Product: 20\n")
-    time.sleep(0.3)
-    print("Explanation: Functions can return multiple values using tuples.\n")
 
-
-# DEF Variables Lesson
+# DEF VARIABLES LESSON
 def defs():
-    import time
-
-    print("\n==================== DEF VARIABLES ====================")
+    print(f"\n========== {bold(bright_magenta('DEF VARIABLES'))} ==========")
     time.sleep(0.3)
-    print("DEF variables (defined using def) allow you to store values or logic")
+    print("DEF variables allow you to store values or logic inside functions.")
     time.sleep(0.3)
-    print("inside functions. You can call these variables/functions whenever needed.\n")
+    print("You can call these variables/functions whenever needed.\n")
     time.sleep(0.3)
 
-    # Example 1: Simple DEF Variable
-    print("Example 1: Simple DEF Variable")
+    # Examples
+    print(f"{bold('Example 1: Simple DEF Variable')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("def greet():")
+    print("INPUT:\ndef greet():")
     time.sleep(0.3)
     print("    message = 'Hello World!'")
     time.sleep(0.3)
@@ -1175,15 +1102,13 @@ def defs():
     print("OUTPUT when calling greet():")
     time.sleep(0.3)
     print("Hello World!\n")
-    input('\nPress Enter to proceed to next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 2: DEF Variable with Parameters
-    print("Example 2: DEF Variable with Parameters")
+    print(f"{bold('Example 2: DEF Variable with Parameters')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("def greet_name(name):")
+    print("INPUT:\ndef greet_name(name):")
     time.sleep(0.3)
     print("    message = f'Hello {name}!'")
     time.sleep(0.3)
@@ -1192,15 +1117,13 @@ def defs():
     print("OUTPUT when calling greet_name('Alice'):")
     time.sleep(0.3)
     print("Hello Alice!\n")
-    input('\nPress Enter to proceed to next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 3: DEF Variable with Multiple Parameters
-    print("Example 3: DEF Variable with Multiple Parameters")
+    print(f"{bold('Example 3: DEF Variable with Multiple Parameters')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("def add_numbers(a, b):")
+    print("INPUT:\ndef add_numbers(a, b):")
     time.sleep(0.3)
     print("    result = a + b")
     time.sleep(0.3)
@@ -1209,85 +1132,68 @@ def defs():
     print("OUTPUT when calling add_numbers(5, 7):")
     time.sleep(0.3)
     print("12\n")
-    input('\nPress Enter to proceed to next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 4: DEF
-    print("Example 4: DEF Variable without Return (Direct Print)")
+    print(f"{bold('Example 4: DEF Variable without Return (Direct Print)')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("def say_hello():")
+    print("INPUT:\ndef say_hello():")
     time.sleep(0.3)
     print("    print('Hello directly from the function!')\n")
     time.sleep(0.3)
     print("OUTPUT when calling say_hello():")
     time.sleep(0.3)
     print("Hello directly from the function!\n")
-    input('\nPress Enter to proceed to next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 5: Importing DEF
-    print("Example 5: Importing DEF Variables from Another File")
+    print(f"{bold('Example 5: Importing DEF Variables from Another File')}")
     time.sleep(0.3)
-    print("INPUT (in file 'my_module.py'):\n")
-    time.sleep(0.3)
-    print("def greet():")
+    print("INPUT (in file 'my_module.py'):\ndef greet():")
     time.sleep(0.3)
     print("    message = 'Hello from another file!'")
     time.sleep(0.3)
     print("    return message\n")
     time.sleep(0.3)
-    print("INPUT (in main program file):\n")
-    time.sleep(0.3)
-    print("from my_module import greet")
+    print("INPUT (in main program file):\nfrom my_module import greet")
     time.sleep(0.3)
     print("print(greet())\n")
     time.sleep(0.3)
-    print("OUTPUT:")
+    print("OUTPUT:\nHello from another file!\n")
     time.sleep(0.3)
-    print("Hello from another file!\n")
-    time.sleep(0.3)
-    print("Explanation: By using 'from filename import function',")
-    time.sleep(0.3)
-    print("you can access DEF variables and functions defined in another file.")
+    print("Explanation: By using 'from filename import function', you can access DEF variables and functions defined in another file.")
     time.sleep(0.3)
     print("This is useful for organizing code into modules.\n")
+    time.sleep(0.3)
 
-# Importing Random Lesson
+# IMPORTING RANDOM LESSON
 def importing_random():
-    import time
-    print("\n==================== IMPORTING RANDOM ====================")
+    print(f"\n========== {bold(bright_green('IMPORTING RANDOM'))} ==========")
     time.sleep(0.3)
-    print("The 'random' module allows you to generate random numbers")
+    print("The 'random' module allows you to generate random numbers and make random selections.")
     time.sleep(0.3)
-    print("and make random selections. First, you need to import it using:")
-    time.sleep(0.3)
-    print("import random\n")
-    input('\nPress Enter to proceed to next example: ')
+    print("First, you need to import it using: import random\n")
     time.sleep(0.3)
 
-    # Example 1: Generating a Random Integer
-    print("Example 1: Generating a Random Integer")
+    # Examples
+    print(f"{bold('Example 1: Generating a Random Integer')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("import random")
+    print("INPUT:\nimport random")
     time.sleep(0.3)
     print("num = random.randint(1, 10)")
     time.sleep(0.3)
     print("print(num)\n")
     time.sleep(0.3)
     print("OUTPUT: (random number between 1 and 10)\n")
-    input('\nPress Enter to proceed to next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 2: Random Choice from a List
-    print("Example 2: Random Choice from a List")
+    print(f"{bold('Example 2: Random Choice from a List')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("import random")
+    print("INPUT:\nimport random")
     time.sleep(0.3)
     print("fruits = ['apple', 'banana', 'cherry']")
     time.sleep(0.3)
@@ -1296,15 +1202,13 @@ def importing_random():
     print("print(choice)\n")
     time.sleep(0.3)
     print("OUTPUT: (randomly selected fruit from the list)\n")
-    input('\nPress Enter to proceed to next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 3: Shuffling a List
-    print("Example 3: Shuffling a List")
+    print(f"{bold('Example 3: Shuffling a List')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("import random")
+    print("INPUT:\nimport random")
     time.sleep(0.3)
     print("numbers = [1, 2, 3, 4, 5]")
     time.sleep(0.3)
@@ -1313,96 +1217,95 @@ def importing_random():
     print("print(numbers)\n")
     time.sleep(0.3)
     print("OUTPUT: (list randomly shuffled)\n")
-    input('\nPress Enter to proceed to next example: ')
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 4: Generating a Random Float
-    print("Example 4: Generating a Random Float")
+    print(f"{bold('Example 4: Generating a Random Float')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("import random")
+    print("INPUT:\nimport random")
     time.sleep(0.3)
     print("num = random.random()")
     time.sleep(0.3)
     print("print(num)\n")
     time.sleep(0.3)
     print("OUTPUT: (random float between 0.0 and 1.0)\n")
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
+    time.sleep(0.3)
 
-# Dictionaries Lesson
+# DICTIONARIES LESSON
 def dictionaries():
-    import time
-    print("\n==================== DICTIONARIES ====================")
+    print(f"\n========== {bold(bright_red('DICTIONARIES'))} ==========")
     time.sleep(0.3)
     print("A dictionary is a collection of key-value pairs in Python.")
     time.sleep(0.3)
-    print("You can use it to store related information where each key")
-    time.sleep(0.3)
-    print("maps to a value. Dictionary keys are unique.\n")
-    input('\nPress Enter to proceed to next example: ')
+    print("Each key maps to a value. Keys are unique.\n")
     time.sleep(0.3)
 
-    # Example 1: Creating a Dictionary
-    print("Example 1: Creating a Dictionary")
+    # Examples
+    print(f"{bold('Example 1: Creating a Dictionary')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("student = {'name': 'Alice', 'age': 20, 'course': 'ITCS'}")
+    print("INPUT:\nstudent = {'name': 'Alice', 'age': 20, 'course': 'ITCS'}")
     time.sleep(0.3)
     print("print(student)\n")
     time.sleep(0.3)
-    print("OUTPUT:")
+    print("OUTPUT:\n{'name': 'Alice', 'age': 20, 'course': 'ITCS'}\n")
     time.sleep(0.3)
-    print("{'name': 'Alice', 'age': 20, 'course': 'ITCS'}\n")
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 2: Accessing Values
-    print("Example 2: Accessing Values")
+    print(f"{bold('Example 2: Accessing Values')}")
     time.sleep(0.3)
-    print("INPUT:")
-    time.sleep(0.3)
-    print("print(student['name'])")
+    print("INPUT:\nprint(student['name'])")
     time.sleep(0.3)
     print("print(student['age'])\n")
     time.sleep(0.3)
-    print("OUTPUT:")
+    print("OUTPUT:\nAlice\n20\n")
     time.sleep(0.3)
-    print("Alice")
-    time.sleep(0.3)
-    print("20\n")
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 3: Adding or Updating Items
-    print("Example 3: Adding or Updating Items")
+    print(f"{bold('Example 3: Modifying Values')}")
     time.sleep(0.3)
-    print("INPUT:")
+    print("INPUT:\nstudent['age'] = 21")
     time.sleep(0.3)
-    print("student['year'] = 2  # Adding a new key-value pair")
+    print("print(student['age'])\n")
     time.sleep(0.3)
-    print("student['age'] = 21  # Updating an existing value")
+    print("OUTPUT:\n21\n")
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
+    time.sleep(0.3)
+
+    print(f"{bold('Example 4: Adding and Removing Key-Value Pairs')}")
+    time.sleep(0.3)
+    print("INPUT:\nstudent['grade'] = 'A'")
+    time.sleep(0.3)
+    print("del student['course']")
     time.sleep(0.3)
     print("print(student)\n")
     time.sleep(0.3)
-    print("OUTPUT:")
+    print("OUTPUT:\n{'name': 'Alice', 'age': 21, 'grade': 'A'}\n")
     time.sleep(0.3)
-    print("{'name': 'Alice', 'age': 21, 'course': 'ITCS', 'year': 2}\n")
-    input('\nPress Enter to proceed to next example: ')
+    input(green('\nPress Enter to see next example: '))
     time.sleep(0.3)
 
-    # Example 4: Removing Items
-    print("Example 4: Removing Items")
+    print(f"{bold('Example 5: Looping Through a Dictionary')}")
     time.sleep(0.3)
-    print("INPUT:")
+    print("INPUT:\nfor key, value in student.items():")
     time.sleep(0.3)
-    print("del student['course']  # Remove a key-value pair")
-    time.sleep(0.3)
-    print("print(student)\n")
+    print("    print(key, value)\n")
     time.sleep(0.3)
     print("OUTPUT:")
     time.sleep(0.3)
-    print("{'name': 'Alice', 'age': 21, 'year': 2}\n")
+    print("name Alice")
+    time.sleep(0.3)
+    print("age 21")
+    time.sleep(0.3)
+    print("grade A\n")
+    time.sleep(0.3)
+    input(green('\nPress Enter to see next example: '))
+    time.sleep(0.3)
 
 # End of List & Functions
 
@@ -1410,8 +1313,7 @@ def dictionaries():
 
 # Challenge 1: Diamond with Name
 def challenge_1():
-
-    print("\n==================== CHALLENGE 1 ====================")
+    print(f"\n========== {bold(bright_magenta('CHALLENGE 1'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1419,12 +1321,11 @@ def challenge_1():
     time.sleep(0.3)
     print("- Create a diamond shape using '*' characters.")
     time.sleep(0.3)
-    print("- Place the user's name in the middle of the diamond.")
-    time.sleep(0.3)
-    
-    input('\nPress Enter to see the Desired Output Example...')
+    print("- Place the user's name in the middle of the diamond.\n")
     time.sleep(0.3)
 
+    input(green('Press Enter to see the Desired Output Example...'))
+    time.sleep(0.3)
     print("\nDesired Output Example (if user enters 'ADRIAN'):")
     time.sleep(0.3)
     print("\t\t\t\t\t*")
@@ -1445,8 +1346,8 @@ def challenge_1():
     time.sleep(0.3)
     print("\t\t\t\t\t*")
     time.sleep(0.3)
-    
-    input('\nPress Enter to see Hint...')
+
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1456,11 +1357,11 @@ def challenge_1():
     time.sleep(0.3)
     print("- Think of the diamond as layers: top, middle, bottom.")
     time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
-# Challenge 2: ATM Denomination Breakdown
+# Challenge 2: ATM Denominator Breakdown
 def challenge_2():
-
-    print("\n==================== CHALLENGE 2 ====================")
+    print(f"\n========== {bold(bright_yellow('CHALLENGE 2'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1468,10 +1369,10 @@ def challenge_2():
     time.sleep(0.3)
     print("- Break down the amount into bills: 1000, 500, 200, 100, 50, 20, 10, 5, 1.")
     time.sleep(0.3)
-    print("- Display how many of each bill is needed.")
+    print("- Display how many of each bill is needed.\n")
     time.sleep(0.3)
-    
-    input('\nPress Enter to see Desired Output Example...')
+
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example (Amount = 2876):")
     time.sleep(0.3)
@@ -1491,22 +1392,22 @@ def challenge_2():
     time.sleep(0.3)
     print("1 - 5")
     time.sleep(0.3)
-    print("1 - 1")
+    print("1 - 1\n")
     time.sleep(0.3)
-    
-    input('\nPress Enter to see Hint...')
+
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
     print("- Use floor division '//' to calculate number of bills.")
     time.sleep(0.3)
-    print("- Use modulo '%' to get remaining amount for next denomination.")
+    print("- Use modulo '%' to get remaining amount for next denomination.\n")
     time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 3: Student Discount Checker
 def challenge_3():
-
-    print("\n==================== CHALLENGE 3 ====================")
+    print(f"\n========== {bold(bright_cyan('CHALLENGE 3'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1516,31 +1417,31 @@ def challenge_3():
     time.sleep(0.3)
     print("- Apply 20% discount if student and show total fee.")
     time.sleep(0.3)
-    print("- Show a message if not eligible.")
+    print("- Show a message if not eligible.\n")
     time.sleep(0.3)
-    
-    input('\nPress Enter to see Desired Output Example...')
+
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example (Fare = 500, Student = yes):")
     time.sleep(0.3)
     print("You're discounted!")
     time.sleep(0.3)
-    print("Your total fee after discount is: 400.0")
+    print("Your total fee after discount is: 400.0\n")
     time.sleep(0.3)
-    
-    input('\nPress Enter to see Hint...')
+
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
     print("- Use if-else statements to check student status.")
     time.sleep(0.3)
-    print("- Calculate discount using multiplication and subtraction.")
+    print("- Calculate discount using multiplication and subtraction.\n")
     time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 4: Manga & Manhwa Recommender
 def challenge_4():
-
-    print("\n==================== CHALLENGE 4 ====================")
+    print(f"\n========== {bold(bright_green('CHALLENGE 4'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1552,9 +1453,10 @@ def challenge_4():
     time.sleep(0.3)
     print("- Ask for duration preference (short, medium, long).")
     time.sleep(0.3)
-    print("- Suggest a title based on their choices.")
+    print("- Suggest a title based on their choices.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
@@ -1564,9 +1466,10 @@ def challenge_4():
     time.sleep(0.3)
     print("\nInputs: manhwa, romance, 2010s, long")
     time.sleep(0.3)
-    print("Suggested Title: Love Revolution (500+ chapters)")
+    print("Suggested Title: Love Revolution (500+ chapters)\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1576,12 +1479,13 @@ def challenge_4():
     time.sleep(0.3)
     print("- Consider .lower().strip() on user input to handle variations.")
     time.sleep(0.3)
-    print("- Use print() to show the suggestion based on the selected options.")
+    print("- Use print() to show the suggestion based on the selected options.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 5: Factorial Calculator
 def challenge_5():
-
-    print("\n==================== CHALLENGE 5 ====================")
+    print(f"\n========== {bold(bright_red('CHALLENGE 5'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1589,9 +1493,10 @@ def challenge_5():
     time.sleep(0.3)
     print("- Compute the factorial of the number (n! = 1 * 2 * ... * n).")
     time.sleep(0.3)
-    print("- Display the result.")
+    print("- Display the result.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
@@ -1601,9 +1506,10 @@ def challenge_5():
     time.sleep(0.3)
     print("\nInput: 7")
     time.sleep(0.3)
-    print("The factorial of 7 is 5040")
+    print("The factorial of 7 is 5040\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1611,12 +1517,13 @@ def challenge_5():
     time.sleep(0.3)
     print("- Initialize a result variable to 1, then multiply it by each number in the loop.")
     time.sleep(0.3)
-    print("- Use print() to display the factorial at the end.")
+    print("- Use print() to display the factorial at the end.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 6: Odd Number Summation
 def challenge_6():
-
-    print("\n==================== CHALLENGE 6 ====================")
+    print(f"\n========== {bold(bright_magenta('CHALLENGE 6'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1624,17 +1531,19 @@ def challenge_6():
     time.sleep(0.3)
     print("- Only sum the numbers that are odd.")
     time.sleep(0.3)
-    print("- Display the total sum of odd numbers.")
+    print("- Display the total sum of odd numbers.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
     print("Inputs: 1, 2, 3, 4, 5, 6, 7")
     time.sleep(0.3)
-    print("The sum of all odd numbers you input is: 16  (1 + 3 + 5 + 7)")
+    print("The sum of all odd numbers you input is: 16  (1 + 3 + 5 + 7)\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1644,12 +1553,13 @@ def challenge_6():
     time.sleep(0.3)
     print("- Add the odd numbers to a running total variable.")
     time.sleep(0.3)
-    print("- Print the total sum after the loop ends.")
+    print("- Print the total sum after the loop ends.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 7: Countdown Simulator (Liftoff)
 def challenge_7():
-
-    print("\n==================== CHALLENGE 7 ====================")
+    print(f"\n========== {bold(bright_yellow('CHALLENGE 7'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1657,9 +1567,10 @@ def challenge_7():
     time.sleep(0.3)
     print("- Count down from that number to 1.")
     time.sleep(0.3)
-    print("- After reaching 1, print 'Liftoff!'.")
+    print("- After reaching 1, print 'Liftoff!'\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
@@ -1667,19 +1578,13 @@ def challenge_7():
     time.sleep(0.3)
     print("Output:")
     time.sleep(0.3)
-    print("5")
+    for i in range(5, 0, -1):
+        print(i)
+        time.sleep(0.1)
+    print("Liftoff!\n")
     time.sleep(0.3)
-    print("4")
-    time.sleep(0.3)
-    print("3")
-    time.sleep(0.3)
-    print("2")
-    time.sleep(0.3)
-    print("1")
-    time.sleep(0.3)
-    print("Liftoff!")
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1687,12 +1592,13 @@ def challenge_7():
     time.sleep(0.3)
     print("- Print each number inside the loop.")
     time.sleep(0.3)
-    print("- After the loop ends, print 'Liftoff!'.")
+    print("- After the loop ends, print 'Liftoff!'.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 8: Multiplication Table
 def challenge_8():
-
-    print("\n==================== CHALLENGE 8 ====================")
+    print(f"\n========== {bold(bright_cyan('CHALLENGE 8'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1700,37 +1606,21 @@ def challenge_8():
     time.sleep(0.3)
     print("- Print the multiplication table of that number from 1 to 10.")
     time.sleep(0.3)
-    print("- Each line should show 'number x multiplier = result'.")
+    print("- Each line should show 'number x multiplier = result'.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
-    print("Input: 3")
+    num = 3
+    for i in range(1, 11):
+        print(f"{num} x {i} = {num * i}")
+        time.sleep(0.1)
+    print()
     time.sleep(0.3)
-    print("Output:")
-    time.sleep(0.3)
-    print("3 x 1 = 3")
-    time.sleep(0.3)
-    print("3 x 2 = 6")
-    time.sleep(0.3)
-    print("3 x 3 = 9")
-    time.sleep(0.3)
-    print("3 x 4 = 12")
-    time.sleep(0.3)
-    print("3 x 5 = 15")
-    time.sleep(0.3)
-    print("3 x 6 = 18")
-    time.sleep(0.3)
-    print("3 x 7 = 21")
-    time.sleep(0.3)
-    print("3 x 8 = 24")
-    time.sleep(0.3)
-    print("3 x 9 = 27")
-    time.sleep(0.3)
-    print("3 x 10 = 30")
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1738,12 +1628,13 @@ def challenge_8():
     time.sleep(0.3)
     print("- Multiply the input number by the loop variable inside the loop.")
     time.sleep(0.3)
-    print("- Print each result in the format 'number x multiplier = result'.")
+    print("- Print each result in the format 'number x multiplier = result'.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 9: Parrot Simulator
 def challenge_9():
-
-    print("\n==================== CHALLENGE 9 ====================")
+    print(f"\n========== {bold(bright_green('CHALLENGE 9'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1751,25 +1642,21 @@ def challenge_9():
     time.sleep(0.3)
     print("- Ask the user how many times the parrot should repeat the phrase.")
     time.sleep(0.3)
-    print("- Print the phrase the specified number of times, prefixed with '🦜: Squawk! Squawk!'")
+    print("- Print the phrase the specified number of times, prefixed with '🦜: Squawk! Squawk!'\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
-    print("Input Phrase: Hello!")
+    phrase = "Hello!"
+    for _ in range(3):
+        print(f"🦜: Squawk! Squawk! {phrase}")
+        time.sleep(0.1)
+    print()
     time.sleep(0.3)
-    print("Number of Repeats: 3")
-    time.sleep(0.3)
-    print("Output:")
-    time.sleep(0.3)
-    print("🦜: Squawk! Squawk! Hello!")
-    time.sleep(0.3)
-    print("🦜: Squawk! Squawk! Hello!")
-    time.sleep(0.3)
-    print("🦜: Squawk! Squawk! Hello!")
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1777,12 +1664,13 @@ def challenge_9():
     time.sleep(0.3)
     print("- Use the print function inside the loop to display the parrot's phrase each iteration.")
     time.sleep(0.3)
-    print("- Concatenate the squawk prefix with the user's input phrase.")
+    print("- Concatenate the squawk prefix with the user's input phrase.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 10: Reversed Staircase For Loop
 def challenge_10():
-
-    print("\n==================== CHALLENGE 10 ====================")
+    print(f"\n========== {bold(bright_red('CHALLENGE 10'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1790,33 +1678,20 @@ def challenge_10():
     time.sleep(0.3)
     print("- Each row contains a decreasing number of '💚' from top to bottom.")
     time.sleep(0.3)
-    print("- The first row should have the most hearts, the last row only one heart.")
+    print("- The first row should have the most hearts, the last row only one heart.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
-    print("💚 💚 💚 💚 💚 💚 💚 💚 💚 💚")
+    for row in range(10, 0, -1):
+        print("💚 " * row)
+        time.sleep(0.1)
+    print()
     time.sleep(0.3)
-    print("💚 💚 💚 💚 💚 💚 💚 💚 💚")
-    time.sleep(0.3)
-    print("💚 💚 💚 💚 💚 💚 💚 💚")
-    time.sleep(0.3)
-    print("💚 💚 💚 💚 💚 💚 💚")
-    time.sleep(0.3)
-    print("💚 💚 💚 💚 💚 💚")
-    time.sleep(0.3)
-    print("💚 💚 💚 💚 💚")
-    time.sleep(0.3)
-    print("💚 💚 💚 💚")
-    time.sleep(0.3)
-    print("💚 💚 💚")
-    time.sleep(0.3)
-    print("💚 💚")
-    time.sleep(0.3)
-    print("💚")
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1824,12 +1699,13 @@ def challenge_10():
     time.sleep(0.3)
     print("- Use a nested for loop to print hearts in each row.")
     time.sleep(0.3)
-    print("- Use the 'end' parameter in print() to avoid line breaks for each heart.")
+    print("- Use the 'end' parameter in print() to avoid line breaks for each heart.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 11: Triangle Pattern
 def challenge_11():
-
-    print("\n==================== CHALLENGE 11 ====================")
+    print(f"\n========== {bold(bright_magenta('CHALLENGE 11'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1837,33 +1713,20 @@ def challenge_11():
     time.sleep(0.3)
     print("- The triangle should have 10 rows.")
     time.sleep(0.3)
-    print("- Each row increases the number of 'x' characters symmetrically, forming a triangle shape.")
+    print("- Each row increases the number of 'x' characters symmetrically, forming a triangle shape.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
-    print("         x")
+    for i in range(1, 11):
+        print(" "*(10-i) + "x"*(2*i-1))
+        time.sleep(0.1)
+    print()
     time.sleep(0.3)
-    print("        xxx")
-    time.sleep(0.3)
-    print("       xxxxx")
-    time.sleep(0.3)
-    print("      xxxxxxx")
-    time.sleep(0.3)
-    print("     xxxxxxxxx")
-    time.sleep(0.3)
-    print("    xxxxxxxxxxx")
-    time.sleep(0.3)
-    print("   xxxxxxxxxxxxx")
-    time.sleep(0.3)
-    print("  xxxxxxxxxxxxxxx")
-    time.sleep(0.3)
-    print(" xxxxxxxxxxxxxxxxx")
-    time.sleep(0.3)
-    print("xxxxxxxxxxxxxxxxxxx")
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1873,12 +1736,13 @@ def challenge_11():
     time.sleep(0.3)
     print("- Then print 'x' characters twice minus one to maintain symmetry.")
     time.sleep(0.3)
-    print("- Use the 'end' parameter in print() to keep characters on the same line before printing a new row.")
+    print("- Use the 'end' parameter in print() to keep characters on the same line before printing a new row.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 12: Pyramid Number Pattern
 def challenge_12():
-
-    print("\n==================== CHALLENGE 12 ====================")
+    print(f"\n========== {bold(bright_yellow('CHALLENGE 12'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1886,23 +1750,25 @@ def challenge_12():
     time.sleep(0.3)
     print("- Each row starts with 1, ascends to the row number, then descends back to 1.")
     time.sleep(0.3)
-    print("- The pyramid should have 5 rows (or more if desired).")
+    print("- The pyramid should have 5 rows (or more if desired).\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example (5 rows):")
     time.sleep(0.3)
-    print("    1")
+    for i in range(1, 6):
+        print(" "*(5-i), end="")
+        for j in range(1, i+1):
+            print(j, end="")
+        for j in range(i-1, 0, -1):
+            print(j, end="")
+        print()
+        time.sleep(0.1)
+    print()
     time.sleep(0.3)
-    print("   121")
-    time.sleep(0.3)
-    print("  12321")
-    time.sleep(0.3)
-    print(" 1234321")
-    time.sleep(0.3)
-    print("123454321")
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1912,12 +1778,13 @@ def challenge_12():
     time.sleep(0.3)
     print("- Use a nested loop to print ascending numbers from 1 to the current row number.")
     time.sleep(0.3)
-    print("- Use another nested loop to print descending numbers from the current row number - 1 back to 1.")
+    print("- Use another nested loop to print descending numbers from the current row number - 1 back to 1.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 13: Odd/Even Summation
 def challenge_13():
-
-    print("\n==================== CHALLENGE 13 ====================")
+    print(f"\n========== {bold(bright_cyan('CHALLENGE 13'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1925,17 +1792,19 @@ def challenge_13():
     time.sleep(0.3)
     print("- Keep separate sums for odd and even numbers.")
     time.sleep(0.3)
-    print("- Stop asking when the user inputs 0 and display the totals.")
+    print("- Stop asking when the user inputs 0 and display the totals.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example (Inputs: 1, 2, 3, 4, 0):")
     time.sleep(0.3)
     print("Total ODD = 4 (1 + 3)")
     time.sleep(0.3)
-    print("Total EVEN = 6 (2 + 4)")
+    print("Total EVEN = 6 (2 + 4)\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1943,12 +1812,13 @@ def challenge_13():
     time.sleep(0.3)
     print("- Use modulo '%' to separate odd and even numbers.")
     time.sleep(0.3)
-    print("- Break the loop if input is 0.")
+    print("- Break the loop if input is 0.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 14: Anime List Maker
 def challenge_14():
-
-    print("\n==================== CHALLENGE 14 ====================")
+    print(f"\n========== {bold(bright_green('CHALLENGE 14'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1956,9 +1826,10 @@ def challenge_14():
     time.sleep(0.3)
     print("- Stop asking when the user types 'exit'.")
     time.sleep(0.3)
-    print("- Store all titles in a list and display them at the end.")
+    print("- Store all titles in a list and display them at the end.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
@@ -1972,9 +1843,10 @@ def challenge_14():
     time.sleep(0.3)
     print("- Naruto")
     time.sleep(0.3)
-    print("- One Piece")
+    print("- One Piece\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -1982,12 +1854,13 @@ def challenge_14():
     time.sleep(0.3)
     print("- Use a list to store the entered anime titles.")
     time.sleep(0.3)
-    print("- Break the loop if the user types 'exit'.")
+    print("- Break the loop if the user types 'exit'.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
 
 # Challenge 15: Student Information System
 def challenge_15():
-
-    print("\n==================== CHALLENGE 15 ====================")
+    print(f"\n========== {bold(bright_red('CHALLENGE 15'))} ==========")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -2005,10 +1878,10 @@ def challenge_15():
     time.sleep(0.3)
     print("  * Delete a student record")
     time.sleep(0.3)
-    print("  * Export records to a JSON file")
+    print("  * Export records to a JSON file\n")
     time.sleep(0.3)
 
-    input('\nPress Enter to see Desired Output Example...')
+    input(green('Press Enter to see Desired Output Example...'))
     time.sleep(0.3)
     print("\nDesired Output Example:")
     time.sleep(0.3)
@@ -2026,9 +1899,10 @@ def challenge_15():
     time.sleep(0.3)
     print("F = Export student record.")
     time.sleep(0.3)
-    print("G = Exit.")
+    print("G = Exit.\n")
+    time.sleep(0.3)
 
-    input('\nPress Enter to see Hint...')
+    input(green('Press Enter to see Hint...'))
     time.sleep(0.3)
     print("\nHint:")
     time.sleep(0.3)
@@ -2040,4 +1914,558 @@ def challenge_15():
     time.sleep(0.3)
     print("- Use functions or separate code blocks to handle Add, Print, Search, Edit, Delete, and Export operations.")
     time.sleep(0.3)
-    print("- For export, you can use the json module to save the dictionary to a JSON file.")
+    print("- For export, you can use the json module to save the dictionary to a JSON file.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
+
+# Color Lesson
+def colors():
+    print(f"\n========== {bold(bright_magenta('COLOR ANSI CODES'))} ==========")
+    time.sleep(0.3)
+    print("Instructions:")
+    time.sleep(0.3)
+    print("- Learn how to use ANSI escape codes to add color and styles to your console output.")
+    time.sleep(0.3)
+    print("- Students can format text themselves using these codes.\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Basic Syntax')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("print('\\033[31mHello\\033[0m')  # Red text")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("Hello (in red)\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Foreground Colors')}")
+    time.sleep(0.3)
+    print("- 30: Black")
+    time.sleep(0.3)
+    print("- 31: Red")
+    time.sleep(0.3)
+    print("- 32: Green")
+    time.sleep(0.3)
+    print("- 33: Yellow")
+    time.sleep(0.3)
+    print("- 34: Blue")
+    time.sleep(0.3)
+    print("- 35: Magenta")
+    time.sleep(0.3)
+    print("- 36: Cyan")
+    time.sleep(0.3)
+    print("- 37: White\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Background Colors')}")
+    time.sleep(0.3)
+    print("- 40: Black")
+    time.sleep(0.3)
+    print("- 41: Red")
+    time.sleep(0.3)
+    print("- 42: Green")
+    time.sleep(0.3)
+    print("- 43: Yellow")
+    time.sleep(0.3)
+    print("- 44: Blue")
+    time.sleep(0.3)
+    print("- 45: Magenta")
+    time.sleep(0.3)
+    print("- 46: Cyan")
+    time.sleep(0.3)
+    print("- 47: White\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Text Styles')}")
+    time.sleep(0.3)
+    print("- 0: Reset / Normal")
+    time.sleep(0.3)
+    print("- 1: Bold")
+    time.sleep(0.3)
+    print("- 2: Dim / Faint")
+    time.sleep(0.3)
+    print("- 3: Italic (not always supported)")
+    time.sleep(0.3)
+    print("- 4: Underline")
+    time.sleep(0.3)
+    print("- 5: Blink Slow")
+    time.sleep(0.3)
+    print("- 6: Blink Rapid (rarely supported)")
+    time.sleep(0.3)
+    print("- 7: Inverse / Reverse")
+    time.sleep(0.3)
+    print("- 8: Hidden / Conceal")
+    time.sleep(0.3)
+    print("- 9: Strikethrough\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 1: Combining Codes')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("print('\\033[1;32mBold Green Text\\033[0m')")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("Bold Green Text (students format themselves)\n")
+    time.sleep(0.3)
+
+    input(green('Press Enter to see Hint...'))
+    time.sleep(0.3)
+    print("\nHint:")
+    time.sleep(0.3)
+    print("- Use '\\033[<style>;<foreground>;<background>mText\\033[0m' for custom formatting.")
+    time.sleep(0.3)
+    print("- Reset code '\\033[0m' clears previous styles to avoid affecting other outputs.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
+
+# Simple Time
+def time_sleep():
+    print(f"\n========== {bold(bright_yellow('TIME / SLEEP'))} ==========")
+    time.sleep(0.3)
+    print("Instructions:")
+    time.sleep(0.3)
+    print("- Learn how to control the pacing of your program using time.sleep().")
+    time.sleep(0.3)
+    print("- This pauses execution for a number of seconds.\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 1: Simple Pause')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("import time")
+    time.sleep(0.3)
+    print("print('Hello')")
+    time.sleep(0.3)
+    print("time.sleep(2)")
+    time.sleep(0.3)
+    print("print('World!')")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("Hello")
+    time.sleep(2)
+    print("World!\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 2: Multiple Delays')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("for i in range(3):")
+    time.sleep(0.3)
+    print("    print(i)")
+    time.sleep(0.3)
+    print("    time.sleep(1)")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("0")
+    time.sleep(1)
+    print("1")
+    time.sleep(1)
+    print("2\n")
+    time.sleep(0.3)
+
+    input(green('Press Enter to see Hint...'))
+    time.sleep(0.3)
+    print("\nHint:")
+    time.sleep(0.3)
+    print("- time.sleep(seconds) pauses the program for the specified number of seconds.")
+    time.sleep(0.3)
+    print("- Useful for creating delays, pacing outputs, or animations in the console.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
+
+# Execute
+def execs():
+    print(f"\n========== {bold(bright_cyan('EXEC'))} ==========")
+    time.sleep(0.3)
+    print("Instructions:")
+    time.sleep(0.3)
+    print("- Learn how to execute a string of Python code dynamically using exec().")
+    time.sleep(0.3)
+    print("- Useful for practice sandboxes or running code stored as strings.\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 1: Simple Execution')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("code = \"print('Hello from exec!')\"")
+    time.sleep(0.3)
+    print("exec(code)")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("Hello from exec!\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 2: Multiple Lines')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("code = '''")
+    time.sleep(0.3)
+    print("for i in range(3):")
+    time.sleep(0.3)
+    print("    print(i)")
+    time.sleep(0.3)
+    print("'''")
+    time.sleep(0.3)
+    print("exec(code)")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("0\n1\n2\n")
+    time.sleep(0.3)
+
+    input(green('Press Enter to see Hint...'))
+    time.sleep(0.3)
+    print("\nHint:")
+    time.sleep(0.3)
+    print("- exec(string) runs the Python code inside the string as if it were normal code.")
+    time.sleep(0.3)
+    print("- Be careful when executing code from user input due to security risks.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
+
+# Try
+def try_lesson():
+    print(f"\n========== {bold(bright_green('TRY'))} ==========")
+    time.sleep(0.3)
+    print("Instructions:")
+    time.sleep(0.3)
+    print("- Learn how to use try blocks to attempt code execution that might fail.")
+    time.sleep(0.3)
+    print("- No except is taught here; this shows the structure of try alone.\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 1: Attempt Division')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("try:")
+    time.sleep(0.3)
+    print("    x = int(input('Enter a number: '))")
+    time.sleep(0.3)
+    print("    print(10 / x)")
+    time.sleep(0.3)
+    print("# No except used here")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("User enters 2 → 5.0")
+    time.sleep(0.3)
+    print("User enters 0 → program stops at this point (no except used)\n")
+    time.sleep(0.3)
+
+    input(green('Press Enter to see Hint...'))
+    time.sleep(0.3)
+    print("\nHint:")
+    time.sleep(0.3)
+    print("- Wrap code that might fail inside a try: block.")
+    time.sleep(0.3)
+    print("- Without except, errors will stop the program, but try illustrates the structure.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
+
+# Strings
+def strings():
+    print(f"\n========== {bold(bright_cyan('STRING METHODS'))} ==========")
+    time.sleep(0.3)
+    print("Instructions:")
+    time.sleep(0.3)
+    print("- Learn how to manipulate strings using common methods.")
+    time.sleep(0.3)
+    print("- Methods covered: .strip(), .lower(), .upper()\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 1: .strip()')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("text = '   Hello World   '")
+    time.sleep(0.3)
+    print("print(text.strip())")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("Hello World\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 2: .lower()')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("text = 'Python'")
+    time.sleep(0.3)
+    print("print(text.lower())")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("python\n")
+    time.sleep(0.3)
+
+    print(f"{bold('Example 3: .upper()')}")
+    time.sleep(0.3)
+    print("INPUT:")
+    time.sleep(0.3)
+    print("text = 'python'")
+    time.sleep(0.3)
+    print("print(text.upper())")
+    time.sleep(0.3)
+    print("\nOUTPUT:")
+    time.sleep(0.3)
+    print("PYTHON\n")
+    time.sleep(0.3)
+
+    input(green('Press Enter to see Hint...'))
+    time.sleep(0.3)
+    print("\nHint:")
+    time.sleep(0.3)
+    print("- Use .strip() to remove leading/trailing spaces from strings.")
+    time.sleep(0.3)
+    print("- Use .lower() to convert text to lowercase.")
+    time.sleep(0.3)
+    print("- Use .upper() to convert text to uppercase.\n")
+    time.sleep(0.3)
+    input(green('Press Enter to return.'))
+
+# Easy 
+def guess_easy():
+    os.system('cls')
+    print(f"\n========== {bold(bright_magenta('GUESS THE OUTPUT - EASY'))} ==========")
+    time.sleep(0.3)
+
+    # Question 1
+    print("Q1: What is the output of print(2 + 3 * 4)?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 14")
+    print(f"{red('2')}. 20")
+    print(f"{red('3')}. 24")
+    print(f"{red('4')}. 9")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '1':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: 14"))
+    time.sleep(1.5)
+
+    # Question 2
+    print("\nQ2: What is the output of print('Hello' + 'World')?")
+    time.sleep(0.3)
+    print(f"{red('1')}. Hello World")
+    print(f"{red('2')}. HelloWorld")
+    print(f"{red('3')}. Hello+World")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '2':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: HelloWorld"))
+    time.sleep(1.5)
+
+    # Question 3
+    print("\nQ3: What is the output of print(len('Python'))?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 5")
+    print(f"{red('2')}. 6")
+    print(f"{red('3')}. 7")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '2':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: 6"))
+    time.sleep(1.5)
+
+    # Question 4
+    print("\nQ4: What is the output of print('Python'.upper())?")
+    time.sleep(0.3)
+    print(f"{red('1')}. python")
+    print(f"{red('2')}. Python")
+    print(f"{red('3')}. PYTHON")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '3':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: PYTHON"))
+    time.sleep(1.5)
+
+    # Question 5
+    print("\nQ5: What is the output of print(10 // 3)?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 3")
+    print(f"{red('2')}. 3.33")
+    print(f"{red('3')}. 4")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '1':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: 3"))
+    time.sleep(1.5)
+
+    input(green("\nPress Enter to return to Guess the Output menu..."))
+
+# Medium
+def guess_medium():
+    os.system('cls')
+    print(f"\n========== {bold(bright_yellow('GUESS THE OUTPUT - MEDIUM'))} ==========")
+    time.sleep(0.3)
+
+    # Question 1
+    print("Q1: What is the output of print(5 % 2)?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 0")
+    print(f"{red('2')}. 1")
+    print(f"{red('3')}. 2")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '2':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: 1"))
+    time.sleep(1.5)
+
+    # Question 2
+    print("\nQ2: What is the output of print('Python'[1:4])?")
+    time.sleep(0.3)
+    print(f"{red('1')}. Pyt")
+    print(f"{red('2')}. yth")
+    print(f"{red('3')}. ytho")
+    print(f"{red('4')}. ythn")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '2':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: yth"))
+    time.sleep(1.5)
+
+    # Question 3
+    print("\nQ3: What is the output of print(bool(0))?")
+    time.sleep(0.3)
+    print(f"{red('1')}. True")
+    print(f"{red('2')}. False")
+    print(f"{red('3')}. 0")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '2':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: False"))
+    time.sleep(1.5)
+
+    # Question 4
+    print("\nQ4: What is the output of print(list(range(3)))?")
+    time.sleep(0.3)
+    print(f"{red('1')}. [0, 1, 2]")
+    print(f"{red('2')}. [1, 2, 3]")
+    print(f"{red('3')}. [0, 1, 2, 3]")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '1':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: [0, 1, 2]"))
+    time.sleep(1.5)
+
+    # Question 5
+    print("\nQ5: What is the output of print(3 ** 2)?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 5")
+    print(f"{red('2')}. 6")
+    print(f"{red('3')}. 9")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '3':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: 9"))
+    time.sleep(1.5)
+
+    input(green("\nPress Enter to return to Guess the Output menu..."))
+
+# Hard
+def guess_hard():
+    os.system('cls')
+    print(f"\n========== {bold(bright_red('GUESS THE OUTPUT - HARD'))} ==========")
+    time.sleep(0.3)
+
+    # Question 1
+    print("Q1: What is the output of print(2 ** 3 ** 2)?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 64")
+    print(f"{red('2')}. 512")
+    print(f"{red('3')}. 256")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '2':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: 512"))
+    time.sleep(1.5)
+
+    # Question 2
+    print("\nQ2: What is the output of print(list('Python')[::-1])?")
+    time.sleep(0.3)
+    print(f"{red('1')}. ['n', 'o', 'h', 't', 'y', 'P']")
+    print(f"{red('2')}. ['P', 'y', 't', 'h', 'o', 'n']")
+    print(f"{red('3')}. ['P', 'y', 't', 'h', 'o']")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '1':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: ['n', 'o', 'h', 't', 'y', 'P']"))
+    time.sleep(1.5)
+
+    # Question 3
+    print("\nQ3: What is the output of print(bool([]) or True)?")
+    time.sleep(0.3)
+    print(f"{red('1')}. True")
+    print(f"{red('2')}. False")
+    print(f"{red('3')}. []")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '1':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: True"))
+    time.sleep(1.5)
+
+    # Question 4
+    print("\nQ4: What is the output of print('Python'[-1::-2])?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 'yhn'")
+    print(f"{red('2')}. 'noth'")
+    print(f"{red('3')}. 'nhy'")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '3':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: nhy"))
+    time.sleep(1.5)
+
+    # Question 5
+    print("\nQ5: What is the output of print((lambda x: x*2)(5))?")
+    time.sleep(0.3)
+    print(f"{red('1')}. 5")
+    print(f"{red('2')}. 10")
+    print(f"{red('3')}. 25")
+    print(f"{red('4')}. Error")
+    choice = input(green("Your answer (1-4): ")).strip()
+    if choice == '2':
+        print(cyan("Correct!"))
+    else:
+        print(red("Wrong! Correct answer: 10"))
+    time.sleep(1.5)
+
+    input(green("\nPress Enter to return to Guess the Output menu..."))
