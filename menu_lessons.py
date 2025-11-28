@@ -96,7 +96,7 @@ def tries():
             
 # Print Lesson
 def prints():
-    print(f"\n========== {bold(bright_magenta('PRINT STATEMENTS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('PRINT STATEMENTS'))} ================")
     time.sleep(0.3)
     print("The print() function displays output on the screen like")
     time.sleep(0.3)
@@ -130,7 +130,7 @@ def prints():
 
 # Input & Variables Lesson
 def inputs():
-    print(f"\n========== {bold(bright_magenta('INPUT & VARIABLES'))} ==========")
+    print(f"\n==================== {bold(bright_magenta('INPUT & VARIABLES'))} ====================")
     time.sleep(0.3)
     print("The input() function allows you to take input from the user")
     time.sleep(0.3)
@@ -173,7 +173,7 @@ def inputs():
 
 # Escape Sequences Lesson
 def escape_sequences():
-    print(f"\n========== {bold(bright_magenta('ESCAPE SEQUENCES'))} ==========")
+    print(f"\n====================== {bold(bright_magenta('ESCAPE SEQUENCES'))} ======================")
     time.sleep(0.3)
     print("Escape sequences are special characters used in strings to")
     time.sleep(0.3)
@@ -230,7 +230,7 @@ def escape_sequences():
 
 # Length Lesson
 def length():
-    print(f"\n========== {bold(bright_magenta('LENGTH'))} ==========")
+    print(f"\n====================== {bold(bright_magenta('LENGTH'))} ======================")
     time.sleep(0.3)
     print("The len() function is used to determine the length of")
     time.sleep(0.3)
@@ -257,10 +257,9 @@ def length():
     time.sleep(0.3)
     input(green('\nPress Enter to continue...'))
 
-
 # Eval Lesson
 def evals():
-    print(f"\n========== {bold(bright_magenta('EVAL & TYPE FUNCTIONS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('EVAL & TYPE FUNCTIONS'))} ================")
     time.sleep(0.3)
     print("The eval() function takes a string and evaluates it as a Python expression.")
     time.sleep(0.3)
@@ -315,7 +314,7 @@ def evals():
 
 # Arithmetic Operators Lesson
 def arithmetic():
-    print(f"\n========== {bold(bright_magenta('ARITHMETIC OPERATORS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('ARITHMETIC OPERATORS'))} ================")
     time.sleep(0.3)
     print("Arithmetic operators are used to perform mathematical")
     time.sleep(0.3)
@@ -364,7 +363,7 @@ def arithmetic():
 
 # Assigntment Operators Lesson
 def assignment():
-    print(f"\n========== {bold(bright_magenta('ASSIGNMENT OPERATORS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('ASSIGNMENT OPERATORS'))} ================")
     time.sleep(0.3)
     print("Assignment operators are used to assign values to")
     time.sleep(0.3)
@@ -407,7 +406,7 @@ def assignment():
 
 # Comparison Operators Lesson
 def comparison():
-    print(f"\n========== {bold(bright_magenta('COMPARISON OPERATORS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('COMPARISON OPERATORS'))} ================")
     time.sleep(0.3)
     print("Comparison operators are used to compare two values.")
     time.sleep(0.3)
@@ -450,7 +449,7 @@ def comparison():
 
 # Logical Operators Lesson
 def logical():
-    print(f"\n========== {bold(bright_magenta('LOGICAL OPERATORS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('LOGICAL OPERATORS'))} ================")
     time.sleep(0.3)
     print("Logical operators are used to combine conditional")
     time.sleep(0.3)
@@ -493,7 +492,7 @@ def logical():
 
 # If Elif Else Lesson
 def if_elif_else():
-    print(f"\n========== {bold(bright_magenta('IF ELIF ELSE'))} ==========")
+    print(f"\n================ {bold(bright_magenta('IF ELIF ELSE'))} ================")
     time.sleep(0.3)
     print("Conditional statements allow you to execute certain")
     time.sleep(0.3)
@@ -557,7 +556,7 @@ def if_elif_else():
 
 # Nested Conditions Lesson
 def nested():
-    print(f"\n========== {bold(bright_magenta('NESTED CONDITIONS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('NESTED CONDITIONS'))} ================")
     time.sleep(0.3)
     print("Nested conditions are conditional statements placed")
     time.sleep(0.3)
@@ -608,7 +607,7 @@ def nested():
 
 # Combining Conditions Lesson
 def combining():
-    print(f"\n========== {bold(bright_magenta('COMBINING CONDITIONS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('COMBINING CONDITIONS'))} ================")
     time.sleep(0.3)
     print("Combining conditions using logical operators (and, or, not)")
     time.sleep(0.3)
@@ -659,7 +658,7 @@ def combining():
 
 # For Loops Lesson
 def for_loops():
-    print(f"\n========== {bold(bright_magenta('FOR LOOPS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('FOR LOOPS'))} ================")
     time.sleep(0.3)
     print("For loops are used to iterate over a sequence (like")
     time.sleep(0.3)
@@ -722,7 +721,7 @@ def for_loops():
 
 # While Loops Lesson
 def while_loops():
-    print(f"\n========== {bold(bright_magenta('WHILE LOOPS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('WHILE LOOPS'))} ================")
     time.sleep(0.3)
     print("While loops repeatedly execute a block of code as long")
     time.sleep(0.3)
@@ -788,7 +787,7 @@ def while_loops():
 
 # Nested Loops Lesson
 def nested_loops():
-    print(f"\n========== {bold(bright_magenta('NESTED LOOPS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('NESTED LOOPS'))} ================")
     time.sleep(0.3)
     print("Nested loops are loops placed inside other loops.")
     time.sleep(0.3)
@@ -828,7 +827,7 @@ def nested_loops():
 
 # Loop Control Statements Lesson
 def loop_control():
-    print(f"\n========== {bold(bright_magenta('LOOP CONTROL STATEMENTS'))} ==========")
+    print(f"\n================ {bold(bright_magenta('LOOP CONTROL STATEMENTS'))} ================")
     time.sleep(0.3)
     print("Loop control statements like break and continue allow")
     time.sleep(0.3)
@@ -899,7 +898,7 @@ def loop_control():
 
 # Lists Lesson
 def lists():
-    print(f"\n========== {bold(bright_yellow('LISTS'))} ==========")
+    print(f"\n==================== {bold(bright_yellow('LISTS'))} ====================")
     time.sleep(0.3)
     print("Lists are used to store multiple items in a single variable.")
     time.sleep(0.3)
@@ -1000,7 +999,7 @@ def lists():
 
 # FUNCTIONS LESSON
 def functions():
-    print(f"\n========== {bold(bright_cyan('FUNCTIONS'))} ==========")
+    print(f"\n=================== {bold(bright_cyan('FUNCTIONS'))} ===================")
     time.sleep(0.3)
     print("Functions are reusable blocks of code that perform a specific task.")
     time.sleep(0.3)
@@ -1083,7 +1082,7 @@ def functions():
 
 # DEF VARIABLES LESSON
 def defs():
-    print(f"\n========== {bold(bright_magenta('DEF VARIABLES'))} ==========")
+    print(f"\n====================== {bold(bright_magenta('DEF VARIABLES'))} ======================")
     time.sleep(0.3)
     print("DEF variables allow you to store values or logic inside functions.")
     time.sleep(0.3)
@@ -1170,7 +1169,7 @@ def defs():
 
 # IMPORTING RANDOM LESSON
 def importing_random():
-    print(f"\n========== {bold(bright_green('IMPORTING RANDOM'))} ==========")
+    print(f"\n====================== {bold(bright_green('IMPORTING RANDOM'))} ======================")
     time.sleep(0.3)
     print("The 'random' module allows you to generate random numbers and make random selections.")
     time.sleep(0.3)
@@ -1236,7 +1235,7 @@ def importing_random():
 
 # DICTIONARIES LESSON
 def dictionaries():
-    print(f"\n========== {bold(bright_red('DICTIONARIES'))} ==========")
+    print(f"\n====================== {bold(bright_red('DICTIONARIES'))} =====================")
     time.sleep(0.3)
     print("A dictionary is a collection of key-value pairs in Python.")
     time.sleep(0.3)
@@ -1313,7 +1312,7 @@ def dictionaries():
 
 # Challenge 1: Diamond with Name
 def challenge_1():
-    print(f"\n========== {bold(bright_magenta('CHALLENGE 1'))} ==========")
+    print(f"\n================ {bold(bright_magenta('CHALLENGE 1'))} ================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1361,7 +1360,7 @@ def challenge_1():
 
 # Challenge 2: ATM Denominator Breakdown
 def challenge_2():
-    print(f"\n========== {bold(bright_yellow('CHALLENGE 2'))} ==========")
+    print(f"\n====================== {bold(bright_yellow('CHALLENGE 2'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1407,7 +1406,7 @@ def challenge_2():
 
 # Challenge 3: Student Discount Checker
 def challenge_3():
-    print(f"\n========== {bold(bright_cyan('CHALLENGE 3'))} ==========")
+    print(f"\n================ {bold(bright_cyan('CHALLENGE 3'))} ================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1441,7 +1440,7 @@ def challenge_3():
 
 # Challenge 4: Manga & Manhwa Recommender
 def challenge_4():
-    print(f"\n========== {bold(bright_green('CHALLENGE 4'))} ==========")
+    print(f"\n====================== {bold(bright_green('CHALLENGE 4'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1485,7 +1484,7 @@ def challenge_4():
 
 # Challenge 5: Factorial Calculator
 def challenge_5():
-    print(f"\n========== {bold(bright_red('CHALLENGE 5'))} ==========")
+    print(f"\n====================== {bold(bright_red('CHALLENGE 5'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1523,7 +1522,7 @@ def challenge_5():
 
 # Challenge 6: Odd Number Summation
 def challenge_6():
-    print(f"\n========== {bold(bright_magenta('CHALLENGE 6'))} ==========")
+    print(f"\n================ {bold(bright_magenta('CHALLENGE 6'))} ================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1559,7 +1558,7 @@ def challenge_6():
 
 # Challenge 7: Countdown Simulator (Liftoff)
 def challenge_7():
-    print(f"\n========== {bold(bright_yellow('CHALLENGE 7'))} ==========")
+    print(f"\n================ {bold(bright_yellow('CHALLENGE 7'))} ================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1598,7 +1597,7 @@ def challenge_7():
 
 # Challenge 8: Multiplication Table
 def challenge_8():
-    print(f"\n========== {bold(bright_cyan('CHALLENGE 8'))} ==========")
+    print(f"\n====================== {bold(bright_cyan('CHALLENGE 8'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1634,7 +1633,7 @@ def challenge_8():
 
 # Challenge 9: Parrot Simulator
 def challenge_9():
-    print(f"\n========== {bold(bright_green('CHALLENGE 9'))} ==========")
+    print(f"\n====================== {bold(bright_green('CHALLENGE 9'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1670,7 +1669,7 @@ def challenge_9():
 
 # Challenge 10: Reversed Staircase For Loop
 def challenge_10():
-    print(f"\n========== {bold(bright_red('CHALLENGE 10'))} ==========")
+    print(f"\n====================== {bold(bright_red('CHALLENGE 10'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1705,7 +1704,7 @@ def challenge_10():
 
 # Challenge 11: Triangle Pattern
 def challenge_11():
-    print(f"\n========== {bold(bright_magenta('CHALLENGE 11'))} ==========")
+    print(f"\n====================== {bold(bright_magenta('CHALLENGE 11'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1742,7 +1741,7 @@ def challenge_11():
 
 # Challenge 12: Pyramid Number Pattern
 def challenge_12():
-    print(f"\n========== {bold(bright_yellow('CHALLENGE 12'))} ==========")
+    print(f"\n====================== {bold(bright_yellow('CHALLENGE 12'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1784,7 +1783,7 @@ def challenge_12():
 
 # Challenge 13: Odd/Even Summation
 def challenge_13():
-    print(f"\n========== {bold(bright_cyan('CHALLENGE 13'))} ==========")
+    print(f"\n====================== {bold(bright_cyan('CHALLENGE 13'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1818,7 +1817,7 @@ def challenge_13():
 
 # Challenge 14: Anime List Maker
 def challenge_14():
-    print(f"\n========== {bold(bright_green('CHALLENGE 14'))} ==========")
+    print(f"\n====================== {bold(bright_green('CHALLENGE 14'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1860,7 +1859,7 @@ def challenge_14():
 
 # Challenge 15: Student Information System
 def challenge_15():
-    print(f"\n========== {bold(bright_red('CHALLENGE 15'))} ==========")
+    print(f"\n====================== {bold(bright_red('CHALLENGE 15'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -1920,7 +1919,7 @@ def challenge_15():
 
 # Color Lesson
 def colors():
-    print(f"\n========== {bold(bright_magenta('COLOR ANSI CODES'))} ==========")
+    print(f"\n====================== {bold(bright_magenta('COLOR ANSI CODES'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -2024,7 +2023,7 @@ def colors():
 
 # Simple Time
 def time_sleep():
-    print(f"\n========== {bold(bright_yellow('TIME / SLEEP'))} ==========")
+    print(f"\n====================== {bold(bright_yellow('TIME / SLEEP'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -2083,7 +2082,7 @@ def time_sleep():
 
 # Execute
 def execs():
-    print(f"\n========== {bold(bright_cyan('EXEC'))} ==========")
+    print(f"\n====================== {bold(bright_cyan('EXEC'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -2136,7 +2135,7 @@ def execs():
 
 # Try
 def try_lesson():
-    print(f"\n========== {bold(bright_green('TRY'))} ==========")
+    print(f"\n====================== {bold(bright_green('TRY'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -2176,7 +2175,7 @@ def try_lesson():
 
 # Strings
 def strings():
-    print(f"\n========== {bold(bright_cyan('STRING METHODS'))} ==========")
+    print(f"\n====================== {bold(bright_cyan('STRING METHODS'))} ======================")
     time.sleep(0.3)
     print("Instructions:")
     time.sleep(0.3)
@@ -2239,7 +2238,7 @@ def strings():
 # Easy 
 def guess_easy():
     os.system('cls')
-    print(f"\n========== {bold(bright_magenta('GUESS THE OUTPUT - EASY'))} ==========")
+    print(f"\n====================== {bold(bright_magenta('GUESS THE OUTPUT - EASY'))} ======================")
     time.sleep(0.3)
 
     # Question 1
@@ -2317,7 +2316,7 @@ def guess_easy():
 # Medium
 def guess_medium():
     os.system('cls')
-    print(f"\n========== {bold(bright_yellow('GUESS THE OUTPUT - MEDIUM'))} ==========")
+    print(f"\n====================== {bold(bright_yellow('GUESS THE OUTPUT - MEDIUM'))} ======================")
     time.sleep(0.3)
 
     # Question 1
@@ -2395,7 +2394,7 @@ def guess_medium():
 # Hard
 def guess_hard():
     os.system('cls')
-    print(f"\n========== {bold(bright_red('GUESS THE OUTPUT - HARD'))} ==========")
+    print(f"\n====================== {bold(bright_red('GUESS THE OUTPUT - HARD'))} ======================")
     time.sleep(0.3)
 
     # Question 1
