@@ -41,19 +41,19 @@ def tries():
     while True:
         os.system('cls')
         print(f"\n==================== {bold(bright_yellow('TRY IT YOURSELF'))} ====================")
-        time.sleep(0.3)
+        time.sleep(0.1)
         print("Type Python code using the concepts you learned.")
-        time.sleep(0.3)
+        time.sleep(0.1)
         print("Type 'output' at the last line to run your code.")
-        time.sleep(0.3)
+        time.sleep(0.1)
         print("Type 'return' at the last line to go back.")
-        time.sleep(0.3)
+        time.sleep(0.1)
         print("\nNOTE:")
-        time.sleep(0.3)
+        time.sleep(0.1)
         print("- input(), import, exit(), quit() are NOT allowed here.")
-        time.sleep(0.3)
+        time.sleep(0.1)
         print("=========================================================\n")
-        time.sleep(0.3)
+        time.sleep(0.1)
 
         user_lines = []
 
