@@ -75,19 +75,19 @@ while True:
         while True:
             os.system('cls')
             print(f"\n=================== {bold(red('PRACTICE YOURSELF'))} ===================")
-            time.sleep(0.3)
+            time.sleep(0.1)
             print("Type Python code using the concepts you learned.")
-            time.sleep(0.3)
+            time.sleep(0.1)
             print("Type 'output' at the last line to run your code.")
-            time.sleep(0.3)
+            time.sleep(0.1)
             print("Type 'return' to go back to the menu.")
-            time.sleep(0.3)
+            time.sleep(0.1)
             print("\nNOTE:")
-            time.sleep(0.3)
+            time.sleep(0.1)
             print("- input(), import, exit(), quit() are NOT recommended.")
-            time.sleep(0.3)
+            time.sleep(0.1)
             print("  because it won't show the output properly")
-            time.sleep(0.3)
+            time.sleep(0.1)
             print("==========================================================\n")
 
             user_lines = []
@@ -118,7 +118,7 @@ while True:
                     print(green("\nYour code is working!"))
                 except Exception as e:
                     print(red(f"There was an error in your code: {e}"))
-                print(cyan("===================================="))
+                print("====================================")
 
             again = input(green("\nTry another code? (y/n): ")).lower()
             if again != 'y':
