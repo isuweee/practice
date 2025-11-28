@@ -4,35 +4,35 @@ from menu_lessons import *
 # Introduction
 def program_intro(name):
     print(f"================================= {bold(cyan('WELCOME'))} =================================")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print(f'Hello {name}, I\'m Teki. And welcome to Teki\'s Python Learning Program.')
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("\nThis program is designed to help you learn Python step by step.")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("You will find lessons on basics, operators, conditional statements,")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("loops, data structures like lists and dictionaries, and small challenges.")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("You can even try coding yourself in the 'Try It Yourself' Section!")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("Plus there's extra lessons and challenges to test your skills.")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("\nEach lesson includes:")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("- Explanation in simple language")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("- Example inputs and outputs")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("- Try It Yourself section to practice coding")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("- Pause for you to absorb the information")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("\nYou can navigate the menus by entering the number of your choice.")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("Press 0 at any menu to go back or exit.")
-    time.sleep(0.3)
+    time.sleep(0.1)
     print(yellow("\nLet's get started!\n"))
-    time.sleep(0.3)
+    time.sleep(0.1)
     input(green("Press Enter to continue: "))
     os.system('cls')
 
@@ -400,11 +400,11 @@ def extras(name):
         elif pick == "0":
             os.system('cls')
             print(cyan("Returning to Main Menu..."))
-            time.sleep(0.3)
+            time.sleep(0.1)
             break
         else:
             print(red("Invalid input! Please enter a number between 0 and 4."))
-            time.sleep(0.3)
+            time.sleep(0.1)
 
 # Guess The Output
 def guess(name):
@@ -435,8 +435,8 @@ def guess(name):
         elif pick == "0":
             os.system('cls')
             print(cyan("Returning to Extra Lessons Menu..."))
-            time.sleep(0.3)
+            time.sleep(0.1)
             break
         else:
             print(red("Invalid input! Please enter a number between 0 and 3."))
-            time.sleep(0.3)
+            time.sleep(0.1)
